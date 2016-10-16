@@ -12,15 +12,14 @@ namespace Itertools.Tests
         public void ProductTwoLists()
         {
             var first = Enumerable.Range(1, 3);
-            var second = new []{'a', 'b', 'c', 'd'};
+            var second = Enumerable.Range(65, 4).Select(alpha => (char) alpha);
             var actual = Itertools.Product(first, second).ToList();
 
             Assert.StrictEqual(actual.Count, 12);
-            Assert.Equal(new Tuple<int, char>(1, 'a'), actual[0]);
-            Assert.Equal(new Tuple<int, char>(1, 'c'), actual[2]);
-            Assert.Equal(new Tuple<int, char>(3, 'd'), actual[11]);
+            Assert.Equal(new Tuple<int, char>(1, 'A'), actual[0]);
+            Assert.Equal(new Tuple<int, char>(1, 'C'), actual[2]);
+            Assert.Equal(new Tuple<int, char>(3, 'D'), actual[11]);
         }
-
 
         [Fact]
         public void ProductWithRepeat()
@@ -30,10 +29,9 @@ namespace Itertools.Tests
             var actual = Itertools.Product(first, second, repeat: 2).ToList();
 
             Assert.StrictEqual(actual.Count, 30);
-            Assert.Equal(new Tuple<int, char>(1, 'a'), actual[0]);
             Assert.Equal(new Tuple<int, char>(1, 'c'), actual[2]);
-            Assert.Equal(actual[13], actual[28]);
             Assert.Equal(new Tuple<int, char>(5, 'c'), actual[29]);
+            Assert.Equal(actual[13], actual[28]);
         }
     }
 }
