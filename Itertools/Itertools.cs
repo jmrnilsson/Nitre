@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Xunit;
 
 namespace Itertools
 {
@@ -30,6 +31,21 @@ namespace Itertools
         public static IEnumerable<decimal> Count(decimal start, decimal step=1.0m)
         {
             return Count(start, x => x + step);
+        }
+
+        public static IEnumerable<Tuple<T1, T2>> Product<T1, T2>
+        (
+            IEnumerable<T1> first,
+            IEnumerable<T2> second,
+            int repeat=1
+        )
+        {
+            if (repeat < 1) throw new ArgumentException();
+            return
+                from repetitions in Enumerable.Range(0, repeat)
+                from e0 in first
+                from e1 in second
+                select new Tuple<T1, T2>(e0, e1);
         }
 
         /*
