@@ -48,18 +48,12 @@ namespace Itertools.Tests
             var actual = typeof(Itertools).GetMethods(BindingFlags.Public | BindingFlags.Static)
                 .Where(mi => mi.Name == "Count")
                 .Select(mi => mi.GetParameters()[0].ParameterType)
-                .OrderBy(mi => mi.ToString())
                 .ToList();
 
-            Assert.Equal(actual[0], typeof(Decimal));
-            Assert.Equal(actual[1], typeof(Double));
-            Assert.Equal(actual[2], typeof(Int32));
-            Assert.Equal(actual[3], typeof(Single));
-            // Assert.Equal(actual[2], typeof(Int16));
-            // Assert.Equal(actual[4], typeof(Int64));
-            // Assert.Equal(actual[6], typeof(UInt16));
-            // Assert.Equal(actual[7], typeof(UInt32));
-            // Assert.Equal(actual[8], typeof(UInt64));
+            Assert.Contains(typeof(decimal), actual);
+            Assert.Contains(typeof(double), actual);
+            Assert.Contains(typeof(int), actual);
+            Assert.Contains(typeof(float), actual);
         }
     }
 }
