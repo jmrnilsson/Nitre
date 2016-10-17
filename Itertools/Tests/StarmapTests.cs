@@ -9,7 +9,7 @@ namespace Itertools.Tests
     public class StarmapTests
     {
         [Fact]
-        public void Starmap()
+        public void StarmapFor2Tuple()
         {
             var iterable0 = new[] {Tuple.Create(1, "first"), Tuple.Create(3, "second")};
             var actual = Itertools.Starmap((a, b) => $"{a}{b}", iterable0);
@@ -18,7 +18,7 @@ namespace Itertools.Tests
         }
 
         [Fact]
-        public void StarmapWithLambda()
+        public void Starmap3Tuple()
         {
             Func<string, int, decimal, dynamic> action = (name, width, height) => new { name, area = width * height };
             var iterable0 = new[] {Tuple.Create("A", 101, 1.2m), Tuple.Create("B", 3, .3m)};
