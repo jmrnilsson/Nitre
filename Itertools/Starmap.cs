@@ -6,21 +6,13 @@ namespace Itertools
 {
     public partial class Itertools
     {
-        public static IEnumerable<TResult> Starmap<T, TResult>(Func<T, TResult> valueFactory, IEnumerable<T> iterable)
+        public static IEnumerable<TResult> Starmap<T1, T2, TResult>
+        (
+            Func<T1, T2, TResult> valueFactory,
+            IEnumerable<Tuple<T1, T2>> iterable
+        )
         {
-            return iterable.Select(valueFactory);
+            return iterable.Select(t => valueFactory(t.Item1, t.Item2));
         }
-        public static IEnumerable<TResult> Starmap<T, TResult>(Func<T, TResult> valueFactory, IEnumerable<IEnumerable<T>> iterables)
-        {
-            return iterables.SelectMany(s => s.Select(valueFactory));
-        }
-
-/*
-        public static IEnumerable<TResult> Starmap(Func<Tuple<T>, TResult> valueFactory, IEnumerable<Tuple<T>> iterable)
-        {
-            return iterable.Select(valueFactory);
-        }
-*/
-
     }
 }
