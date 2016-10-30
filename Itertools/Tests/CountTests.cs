@@ -8,7 +8,7 @@ namespace Itertools.Tests
     public class CountTests
     {
         [Fact]
-        public void CountIntWithStep()
+        public void ForIntegerWithStep()
         {
             var actual = Itertools.Count(0, 3).Take(10).ToList();
 
@@ -18,7 +18,7 @@ namespace Itertools.Tests
         }
 
         [Fact]
-        public void CountFloatWithNegativeStep()
+        public void ForFloatWithNegativeStep()
         {
             var actual = Itertools.Count(6f, -7f).Take(3).ToList();
 
@@ -26,7 +26,7 @@ namespace Itertools.Tests
         }
 
         [Fact]
-        public void CountNegativeDoubleWithoutStep()
+        public void ForNegativeDoubleWithoutStep()
         {
             var actual = Itertools.Count(-2d).Take(3).ToList();
 
@@ -34,7 +34,7 @@ namespace Itertools.Tests
         }
 
         [Fact]
-        public void CountDecimalWithStep()
+        public void ForDecimalWithStep()
         {
             var actual = Itertools.Count(1.1m, -0.4m).Take(3).ToList();
 
@@ -42,7 +42,7 @@ namespace Itertools.Tests
         }
 
         [Fact]
-        public void CountAllowedTypes()
+        public void ForAllTypes()
         {
             var actual = typeof(Itertools).GetMethods(BindingFlags.Public | BindingFlags.Static)
                 .Where(mi => mi.Name == "Count")
