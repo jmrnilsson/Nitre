@@ -7,7 +7,7 @@ namespace Itertools
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine(File.ReadAllText("README.markdown"));
+            Console.WriteLine(File.ReadAllText("README.md"));
         }
     }
 }
