@@ -1,4 +1,4 @@
-This app requires [dotnet core ^1.0](https://www.microsoft.com/net/core).
+This app requires [.NET core ^1.0](https://www.microsoft.com/net/core).
 
 **Restore dependencies:**
 
