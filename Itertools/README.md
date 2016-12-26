@@ -1,4 +1,4 @@
-This app requires _dotnet core_ 1.0.0 or 1.0.1 [https://www.microsoft.com/net/core](https://www.microsoft.com/net/core).
+This app requires [dotnet core ^1.0](https://www.microsoft.com/net/core).
 
 **Restore dependencies:**
 
