@@ -1,4 +1,4 @@
-This is a reimagination of Pythons popular Itertools module for C#. Albeit LINQ provides syntactically beautiful expressions, there is still a few things that Itertools does really and makes sense in C# as well. Some these features already exists in the System.Linq-namespace and consequently such implementations will simply redirekt invokation but will also accessible in Itertools.
+This is a reimagination of Pythons popular Itertools module for C#. Albeit LINQ provides syntactically beautiful expressions, there is still a few things that Itertools does really well and makes sense in C#. Some these features already exists in the System.Linq-namespace and consequently such implementations will simply be accessible as an alias in Itertools.
 
 This app requires [.NET core ^1.0](https://www.microsoft.com/net/core).
 
