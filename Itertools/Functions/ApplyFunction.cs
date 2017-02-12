@@ -17,5 +17,19 @@ namespace Itertools.Functions
         {
             return valueFactory(tuple.Item1, tuple.Item2, tuple.Item3);
         }
+
+        public static void Apply<T1, T2>(Action<T1, T2> valueFactory, Tuple<T1, T2> tuple)
+        {
+            valueFactory(tuple.Item1, tuple.Item2);
+        }
+
+        public static void Apply<T1, T2, T3>
+        (
+            Action<T1, T2, T3> valueFactory,
+            Tuple<T1, T2, T3> tuple
+        )
+        {
+            valueFactory(tuple.Item1, tuple.Item2, tuple.Item3);
+        }
     }
 }
