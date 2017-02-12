@@ -6,6 +6,7 @@ namespace Itertools.Functions
 {
     public static class ProductFunction
     {
+        #region ProducrEnumerable
         public static IEnumerable<Tuple<T1, T2>> Product<T1, T2>
         (
             IEnumerable<T1> iterable0,
@@ -127,5 +128,30 @@ namespace Itertools.Functions
                 from i6 in iterable6
                 select new Tuple<T1, T2, T3, T4, T5, T6, T7>(i0, i1, i2, i3, i4, i5, i6);
         }
+        #endregion
+
+        #region ProductTuple
+        // Looks like there should be some unzip version around..
+
+        public static Tuple<IEnumerable<T1>, IEnumerable<T2>> Product<T1, T2>
+        (
+            IEnumerable<Tuple<T1, T2>> iterable,
+            int repeat=1
+        )
+        {
+            Ensure.Positive(repeat);
+            var iterableList = iterable.ToList();
+            var iterable0 = new T1[iterableList.Count];
+            var iterable1 = new T2[iterableList.Count];
+
+            for (var i = 0; i < iterableList.Count; i++)
+            {
+                iterable0[i] = iterableList[i].Item1;
+                iterable1[i] = iterableList[i].Item2;
+            }
+            return new Tuple<IEnumerable<T1>, IEnumerable<T2>>(iterable0, iterable1);
+        }
+
+        #endregion
     }
 }
