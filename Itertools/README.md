@@ -25,6 +25,9 @@ Nr | Method | Implemented
 17 | combinations | -
 18 | combinations_with_replacements | -
 
+**Additional comments**
+Perhaps Zip, ZipLongest, Call, Apply will be considered in the future, along with up to 16 tuples per function.
+
 **Restore dependencies:**
 
     $ dotnet restore

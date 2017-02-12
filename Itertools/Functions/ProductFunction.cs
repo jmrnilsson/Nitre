@@ -2,15 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Itertools
+namespace Itertools.Functions
 {
-    public partial class Itertools
+    public static class ProductFunction
     {
-        private static void EnsurePositive(int repeat)
-        {
-            if (repeat < 1) throw new ArgumentException("Too low", nameof(repeat));
-        }
-
         public static IEnumerable<Tuple<T1, T2>> Product<T1, T2>
         (
             IEnumerable<T1> iterable0,
@@ -18,7 +13,7 @@ namespace Itertools
             int repeat=1
         )
         {
-            EnsurePositive(repeat);
+            Ensure.Positive(repeat);
             return
                 from repetitions in Enumerable.Range(0, repeat)
                 from e0 in iterable0
@@ -34,7 +29,7 @@ namespace Itertools
             int repeat=1
         )
         {
-            EnsurePositive(repeat);
+            Ensure.Positive(repeat);
             return
                 from repetitions in Enumerable.Range(0, repeat)
                 from i0 in iterable0
@@ -52,7 +47,7 @@ namespace Itertools
             int repeat=1
         )
         {
-            EnsurePositive(repeat);
+            Ensure.Positive(repeat);
             return
                 from repetitions in Enumerable.Range(0, repeat)
                 from i0 in iterable0
@@ -73,7 +68,7 @@ namespace Itertools
             int repeat=1
         )
         {
-            EnsurePositive(repeat);
+            Ensure.Positive(repeat);
             return
                 from repetitions in Enumerable.Range(0, repeat)
                 from i0 in iterable0
@@ -96,7 +91,7 @@ namespace Itertools
             int repeat=1
         )
         {
-            EnsurePositive(repeat);
+            Ensure.Positive(repeat);
             return
                 from repetitions in Enumerable.Range(0, repeat)
                 from i0 in iterable0
@@ -120,7 +115,7 @@ namespace Itertools
             int repeat=1
         )
         {
-            EnsurePositive(repeat);
+            Ensure.Positive(repeat);
             return
                 from repetitions in Enumerable.Range(0, repeat)
                 from i0 in iterable0
@@ -132,44 +127,5 @@ namespace Itertools
                 from i6 in iterable6
                 select new Tuple<T1, T2, T3, T4, T5, T6, T7>(i0, i1, i2, i3, i4, i5, i6);
         }
-
-
-        /*
-        count             X
-        cycle
-        repeat
-        chain
-        compress
-        dropwhile
-        groupby
-        filter
-        filterfalse
-        slice
-        map
-        starmap
-        tee
-        takewhile
-        product        X
-        permutations
-        combinations
-        combinations_with_replacements
-
-        IEnumerable<Tuple<T1, T2>> Zip<T1, T2>(IEnumerable<T1> first, IEnumerable<T2> second);
-
-        IEnumerable<Tuple<T1, T2>> ZipLongest<T1, T2>
-        (
-            IEnumerable<T1> first, IEnumerable<T2> second, T2 fillValue=default(T2)
-        );
-
-        float Count(float start, float step=1f);
-        double Count(double start, double step=1d);
-        decimal Count(decimal start, decimal step=1.0m);
-        int Count(int start, int step=1);
-        // ReSharper disable once BuiltInTypeReferenceStyle
-        Int16 Count(Int16 start, Int16 step = 1);
-        // ReSharper disable once BuiltInTypeReferenceStyle
-        Int64 Count(Int64 start, Int64 step = 1);
-        */
-
     }
 }
