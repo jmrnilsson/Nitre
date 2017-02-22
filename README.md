@@ -49,7 +49,7 @@ Currying is achieved with:
 
 ## Example draft
 
-For example a cartesian product is can be described as:
+For example a cartesian product can be described as:
 
     var libraries =
         from l in Libraries
