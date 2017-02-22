@@ -3,7 +3,7 @@ using System.Linq;
 using System.Reflection;
 using Xunit;
 
-namespace Itertools.Tests
+namespace Itertools.Test
 {
     public class CountTests
     {

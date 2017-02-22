@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Itertools.Tests
+namespace Itertools.Test
 {
-    public static class Utils
+    internal static class Utils
     {
         internal static IEnumerable<char> RangeOfChars(int count, int start = 65)
         {

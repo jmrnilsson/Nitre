@@ -4,3 +4,4 @@
 **/obj
 **/project.lock.json
 .DS_Store
+**/packages

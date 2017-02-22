@@ -1,9 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
-namespace Itertools.Tests
+namespace Itertools.Test
 {
     public class ProductTest
     {

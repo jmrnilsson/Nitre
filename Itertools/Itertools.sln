@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.0.0
 MinimumVisualStudioVersion = 10.0.0.1
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Itertools", "Itertools.xproj", "{96263638-F1B4-494E-B765-9312E5975816}"
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Itertools.Test", "Itertools.Test\Itertools.Test.xproj", "{978531F5-CC71-4F18-9A3E-634A337E3F59}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Itertools", "Itertools\Itertools.xproj", "{9CD2AC59-89B9-45EB-A751-91385B410F4A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{96263638-F1B4-494E-B765-9312E5975816}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{96263638-F1B4-494E-B765-9312E5975816}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{96263638-F1B4-494E-B765-9312E5975816}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{96263638-F1B4-494E-B765-9312E5975816}.Release|Any CPU.Build.0 = Release|Any CPU
+		{978531F5-CC71-4F18-9A3E-634A337E3F59}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{978531F5-CC71-4F18-9A3E-634A337E3F59}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{978531F5-CC71-4F18-9A3E-634A337E3F59}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{978531F5-CC71-4F18-9A3E-634A337E3F59}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CD2AC59-89B9-45EB-A751-91385B410F4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CD2AC59-89B9-45EB-A751-91385B410F4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CD2AC59-89B9-45EB-A751-91385B410F4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CD2AC59-89B9-45EB-A751-91385B410F4A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

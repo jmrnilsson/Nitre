@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using static Itertools.Functions.ApplyFunction;
 
 namespace Itertools.Functions
 {
@@ -12,7 +13,7 @@ namespace Itertools.Functions
             IEnumerable<Tuple<T1, T2>> iterable
         )
         {
-            return iterable.Select(t => valueFactory(t.Item1, t.Item2));
+            return iterable.Select(t => Apply(valueFactory, t));
         }
 
         public static IEnumerable<TResult> Starmap<T1, T2, T3, TResult>
@@ -21,7 +22,7 @@ namespace Itertools.Functions
             IEnumerable<Tuple<T1, T2, T3>> iterable
         )
         {
-            return iterable.Select(t => valueFactory(t.Item1, t.Item2, t.Item3));
+            return iterable.Select(t => Apply(valueFactory, t));
         }
 
         public static IEnumerable<TResult> Starmap<T1, T2, T3, T4, TResult>
@@ -30,7 +31,7 @@ namespace Itertools.Functions
             IEnumerable<Tuple<T1, T2, T3, T4>> iterable
         )
         {
-            return iterable.Select(t => valueFactory(t.Item1, t.Item2, t.Item3, t.Item4));
+            return iterable.Select(t => Apply(valueFactory, t));
         }
 
         public static IEnumerable<TResult> Starmap<T1, T2, T3, T4, T5, TResult>
@@ -39,7 +40,7 @@ namespace Itertools.Functions
             IEnumerable<Tuple<T1, T2, T3, T4, T5>> iterable
         )
         {
-            return iterable.Select(t => valueFactory(t.Item1, t.Item2, t.Item3, t.Item4, t.Item5));
+            return iterable.Select(t => Apply(valueFactory, t));
         }
 
         public static IEnumerable<TResult> Starmap<T1, T2, T3, T4, T5, T6, TResult>
@@ -48,7 +49,7 @@ namespace Itertools.Functions
             IEnumerable<Tuple<T1, T2, T3, T4, T5, T6>> iterable
         )
         {
-            return iterable.Select(t => valueFactory(t.Item1, t.Item2, t.Item3, t.Item4, t.Item5, t.Item6));
+            return iterable.Select(t => Apply(valueFactory, t));
         }
 
         public static IEnumerable<TResult> Starmap<T1, T2, T3, T4, T5, T6, T7, TResult>
@@ -57,7 +58,7 @@ namespace Itertools.Functions
             IEnumerable<Tuple<T1, T2, T3, T4, T5, T6, T7>> iterable
         )
         {
-            return iterable.Select(t => valueFactory(t.Item1, t.Item2, t.Item3, t.Item4, t.Item5, t.Item6, t.Item7));
+            return iterable.Select(t => Apply(valueFactory, t));
         }
     }
 }
