@@ -28,7 +28,7 @@ Nr | Method | Implemented
 17 | combinations | -
 18 | combinations_with_replacements | -
 
-# Planned changes
+## Planned changes
 This library will probably include a few basic operations in addition to those listed above because
 of their implied use. However currying, partials and bind will not be included since the have
 great support through lambdas already.
@@ -41,16 +41,8 @@ Currying is achieved with:
 
     i => j => k => valueFactory(i, j, k);
 
-# Restore dependencies
+## Building, testing and running
 
-    $ dotnet restore
-    log  : Restore completed in 101ms.
-
-# Running tests
-
-    $ dotnet test
-
-
-# Start the application
-
-    $ dotnet run
+    PS> ./make.ps1
+    PS> ./make.ps1 test
+    PS> ./make.ps1 run

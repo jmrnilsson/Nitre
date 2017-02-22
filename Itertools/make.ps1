@@ -5,7 +5,12 @@
 Param([Parameter(Mandatory=$False,Position=1)] [string]$Command)
 $initialPath = $PWD
 $itertoolsPath = Join-Path -Path $initialPath -ChildPath "Itertools"
+$itertoolsProjectPath = Join-Path -Path $itertoolsPath -ChildPath "project.json"
+$itertoolsProjectLockPath = Join-Path -Path $itertoolsPath -ChildPath "project.lock.json"
 $itertoolsTestPath = Join-Path -Path $initialPath -ChildPath "Itertools.Test"
+$itertoolsTestProjectPath = Join-Path -Path $itertoolsTestPath -ChildPath "project.json"
+$itertoolsTestProjectLockPath = Join-Path -Path $itertoolsTestPath -ChildPath "project.lock.json"
+
 
 $DefaultCommand = "default"
 $Command = If ($Command) { $Command } Else { $DefaultCommand }
@@ -46,24 +51,25 @@ If ($Command -imatch "clean")
     Exit 0;
 }
 
-If (New-Target ./Itertools/project.json ./Itertools/project.lock.json)
+If (New-Target $itertoolsProjectPath $itertoolsProjectLockPath)
 {
-    $(Set-Location Itertools; dotnet restore)
+    Set-Location $itertoolsPath
+    $(dotnet restore)
 }
 Else
 {
-    Write-Output "Skipping ./Itertools/project.json..."
+    Write-Output $("Skipping {0}..." -f $itertoolsProjectPath)
 }
 
-If (New-Target ./Itertools.Test/project.json ./Itertools.Test/project.lock.json)
+If (New-Target $itertoolsTestProjectPath $itertoolsTestProjectLockPath)
 {
-    $(Set-Location $itertoolsTestPath; dotnet restore)
+    Set-Location $itertoolsTestPath
+    $(dotnet restore)
 }
 Else
 {
-    Write-Output "Skipping ./Itertools.Test/project.json..."
+    Write-Output $("Skipping {0}..." -f $itertoolsTestProjectPath)
 }
-
 
 If ($Command -imatch "test" -or $Command -imatch $DefaultCommand)
 {
@@ -77,6 +83,12 @@ If ($Command -imatch "build" -or $Command -imatch $DefaultCommand)
     $(dotnet build)
     Set-Location $itertoolsTestPath
     $(dotnet build)
+}
+
+If ($Command -imatch "run")
+{
+    Set-Location $itertoolsPath
+    $(dotnet run)
 }
 
 Write-Output $("Entering '{0}'.." -f $initialPath)
