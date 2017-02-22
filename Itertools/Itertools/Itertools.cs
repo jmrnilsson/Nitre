@@ -109,11 +109,9 @@ namespace Itertools
                 iterable
             );
         }
-
         #endregion
 
         #region 15_product
-
         public static IEnumerable<Tuple<T1, T2>> Product<T1, T2>
         (
             IEnumerable<T1> iterable0,
@@ -236,11 +234,9 @@ namespace Itertools
                 repeat
             );
         }
-
         #endregion
 
         #region 14_TAKEWHILE
-
         public static IEnumerable<TSource> TakeWhile<TSource>
         (
             IEnumerable<TSource> source,
@@ -258,8 +254,26 @@ namespace Itertools
         {
             return source.TakeWhile(predicate);
         }
+        #endregion
 
+        #region 9_FILTERFALSE
+        public static IEnumerable<TSource> FilterFalse<TSource>
+        (
+            IEnumerable<TSource> source,
+            Func<TSource, int, bool> predicate
+        )
+        {
+            return source.Where((it, i) => !predicate(it, i));
+        }
 
+        public static IEnumerable<TSource> FilterFalse<TSource>
+        (
+            IEnumerable<TSource> source,
+            Func<TSource, bool> predicate
+        )
+        {
+            return source.Where(it => !predicate(it));
+        }
         #endregion
     }
 }

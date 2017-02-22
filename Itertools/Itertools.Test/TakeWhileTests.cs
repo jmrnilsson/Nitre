@@ -6,7 +6,7 @@ namespace Itertools.Test
     public class TakeWhileTests
     {
         [Fact]
-        public void ForLongPredicate()
+        public void ForIndexed()
         {
             var iterable0 = Enumerable.Range(0, 12);
             var actual = Itertools.TakeWhile(iterable0, (it, i) => i < 4 && (it < 3 || it % 3 == 0)).ToList();
@@ -16,7 +16,7 @@ namespace Itertools.Test
         }
 
         [Fact]
-        public void ForShortPredicate()
+        public void ForNonIndexed()
         {
             var iterable0 = Enumerable.Range(0, 12);
             var actual = Itertools.TakeWhile(iterable0, it => it < 4).ToList();

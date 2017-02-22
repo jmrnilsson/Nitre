@@ -3,7 +3,7 @@ expressions there is still a few things that Itertools does really well and make
 things seem to evolve around the use of tuples or infinite collections. Features for enumerables are
 already decently covered in the `System.Linq-namespace`.
 
-This app requires [.NET core ~1.0](https://www.microsoft.com/net/core).
+This app requires [.NET Core ~1.0](https://www.microsoft.com/net/core) and [PowerShell](https://github.com/PowerShell/PowerShell)
 
 List of features ported.
 

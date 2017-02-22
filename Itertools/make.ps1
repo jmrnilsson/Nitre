@@ -36,59 +36,57 @@ If ($Command -imatch "clean")
 {
     Write-Output $("Entering '{0}'.." -f $itertoolsPath)
     Set-Location $itertoolsPath
+
+    Write-Output $("Clearing 'bin', 'obj', 'packages'..")
     rm -rf ./bin/
     rm -rf ./obj/
     rm -rf ./packages/
 
     Write-Output $("Entering '{0}'.." -f $itertoolsTestPath)
     Set-Location $itertoolsTestPath
+    Write-Output $("Clearing 'bin', 'obj', 'packages'..")
     rm -rf ./bin/
     rm -rf ./obj/
     rm -rf ./packages/
-
-    Write-Output $("Entering '{0}'.." -f $initialPath)
-    Set-Location $initialPath
-    Exit 0;
 }
-
-If (New-Target $itertoolsProjectPath $itertoolsProjectLockPath)
+ElseIf ($Command -imatch "build" -or $Command -imatch $DefaultCommand)
 {
     Set-Location $itertoolsPath
-    $(dotnet restore)
-}
-Else
-{
-    Write-Output $("Skipping {0}..." -f $itertoolsProjectPath)
-}
-
-If (New-Target $itertoolsTestProjectPath $itertoolsTestProjectLockPath)
-{
+    $(dotnet build)
     Set-Location $itertoolsTestPath
-    $(dotnet restore)
+    $(dotnet build)
 }
-Else
+ElseIf ($Command -imatch "run")
 {
-    Write-Output $("Skipping {0}..." -f $itertoolsTestProjectPath)
+    Set-Location $itertoolsPath
+    $(dotnet run)
 }
-
 If ($Command -imatch "test" -or $Command -imatch $DefaultCommand)
 {
     Set-Location $itertoolsTestPath
     $(dotnet test)
 }
-
-If ($Command -imatch "build" -or $Command -imatch $DefaultCommand)
+If ($Command -imatch $DefaultCommand)
 {
-    Set-Location $itertoolsPath
-    $(dotnet build)
-    Set-Location $itertoolsTestPath
-    $(dotnet build)
-}
+    If (New-Target $itertoolsProjectPath $itertoolsProjectLockPath)
+    {
+        Set-Location $itertoolsPath
+        $(dotnet restore)
+    }
+    Else
+    {
+        Write-Output $("Skipping {0}..." -f $itertoolsProjectPath)
+    }
 
-If ($Command -imatch "run")
-{
-    Set-Location $itertoolsPath
-    $(dotnet run)
+    If (New-Target $itertoolsTestProjectPath $itertoolsTestProjectLockPath)
+    {
+        Set-Location $itertoolsTestPath
+        $(dotnet restore)
+    }
+    Else
+    {
+        Write-Output $("Skipping {0}..." -f $itertoolsTestProjectPath)
+    }
 }
 
 Write-Output $("Entering '{0}'.." -f $initialPath)
