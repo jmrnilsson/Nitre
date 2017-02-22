@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using static Itertools.Functions.ApplyFunction;
 
 namespace Itertools.Functions
 {
@@ -14,7 +15,7 @@ namespace Itertools.Functions
             int repeat=1
         )
         {
-            Ensure.Positive(repeat);
+            EnsurePositive(repeat);
             return
                 from repetitions in Enumerable.Range(0, repeat)
                 from e0 in iterable0
@@ -30,7 +31,7 @@ namespace Itertools.Functions
             int repeat=1
         )
         {
-            Ensure.Positive(repeat);
+            EnsurePositive(repeat);
             return
                 from repetitions in Enumerable.Range(0, repeat)
                 from i0 in iterable0
@@ -48,7 +49,7 @@ namespace Itertools.Functions
             int repeat=1
         )
         {
-            Ensure.Positive(repeat);
+            EnsurePositive(repeat);
             return
                 from repetitions in Enumerable.Range(0, repeat)
                 from i0 in iterable0
@@ -69,7 +70,7 @@ namespace Itertools.Functions
             int repeat=1
         )
         {
-            Ensure.Positive(repeat);
+            EnsurePositive(repeat);
             return
                 from repetitions in Enumerable.Range(0, repeat)
                 from i0 in iterable0
@@ -92,7 +93,7 @@ namespace Itertools.Functions
             int repeat=1
         )
         {
-            Ensure.Positive(repeat);
+            EnsurePositive(repeat);
             return
                 from repetitions in Enumerable.Range(0, repeat)
                 from i0 in iterable0
@@ -116,7 +117,7 @@ namespace Itertools.Functions
             int repeat=1
         )
         {
-            Ensure.Positive(repeat);
+            EnsurePositive(repeat);
             return
                 from repetitions in Enumerable.Range(0, repeat)
                 from i0 in iterable0
@@ -139,7 +140,7 @@ namespace Itertools.Functions
             int repeat=1
         )
         {
-            Ensure.Positive(repeat);
+            EnsurePositive(repeat);
             var iterableList = iterable.ToList();
             var iterable0 = new T1[iterableList.Count];
             var iterable1 = new T2[iterableList.Count];

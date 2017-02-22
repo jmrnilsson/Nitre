@@ -74,7 +74,7 @@ Else
 If ($Command -imatch "test" -or $Command -imatch $DefaultCommand)
 {
     Set-Location $itertoolsTestPath
-    $(dotnet build)
+    $(dotnet test)
 }
 
 If ($Command -imatch "build" -or $Command -imatch $DefaultCommand)

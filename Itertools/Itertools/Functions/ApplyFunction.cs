@@ -4,6 +4,11 @@ namespace Itertools.Functions
 {
     internal static class ApplyFunction
     {
+        internal static void EnsurePositive(int repeat)
+        {
+            if (repeat < 1) throw new ArgumentException("Low", nameof(repeat));
+        }
+
         internal static TResult Apply<T1, T2, TResult>(Func<T1, T2, TResult> valueFactory, Tuple<T1, T2> tuple)
         {
             return valueFactory(tuple.Item1, tuple.Item2);
