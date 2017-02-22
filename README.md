@@ -51,7 +51,7 @@ Currying is achieved with:
 
 For example a cartesian product can be described as:
 
-```cs``
+```csharp
     var libraries =
         from l in Libraries
         join m in Municipality on l.MunicipalityId equals co.MunicipalityId
@@ -62,7 +62,7 @@ For example a cartesian product can be described as:
 
 Instead it's intended to make use of tuples for applying functions similar to parameter unpacking:
 
-```cs``
+```csharp
     var libraries =
         Product(Libraries, Municipality, Country)
         .Filter((l, m, _) => l.MunicipalityId == m.MunicipalityId)
