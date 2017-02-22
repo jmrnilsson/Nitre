@@ -46,3 +46,22 @@ Currying is achieved with:
     PS> ./make.ps1
     PS> ./make.ps1 test
     PS> ./make.ps1 run
+
+## Example draft
+
+For example a cartesian product is can be described as:
+
+    var libraries =
+        from l in Libraries
+        join m in Municipality on l.MunicipalityId equals co.MunicipalityId
+        from c in Country
+        where c.IsoCode equals m.IsoCode || "GP" == c.IsoCode
+        select new l;
+
+Instead it's intended to make use of tuples for applying functions similar to parameter unpacking:
+
+    var libraries =
+        Product(Libraries, Municipality, Country)
+        .Filter((l, m, _) => l.MunicipalityId == m.MunicipalityId)
+        .Filter((_, m, c) => m.IsoCode == c.IsoCode || "GP" == c.IsoCode)
+        .Select(t => t.Item1);
