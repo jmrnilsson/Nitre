@@ -3,11 +3,11 @@ expressions there is still a few things that Itertools does really well and make
 things seem to evolve around the use of tuples or infinite collections. Features for enumerables are
 already decently covered in the `System.Linq-namespace`.
 
-This app requires [.NET core ^1.0](https://www.microsoft.com/net/core).
+This app requires [.NET core ~1.0](https://www.microsoft.com/net/core).
 
-List of features ported is listed.
+List of features ported.
 
-Nr | Method | Implemented 
+Nr | Method | Implemented
 ------------ | ------------- | -------------
 1 | count | :white_check_mark:
 2 | cycle | -
@@ -28,35 +28,29 @@ Nr | Method | Implemented
 17 | combinations | -
 18 | combinations_with_replacements | -
 
-**Planned changes**
+# Planned changes
 This library will probably include a few basic operations in addition to those listed above because
 of their implied use. However currying, partials and bind will not be included since the have
-great support through lambdas already. Bind is possible with `(i, j) => valueFactory(i, "value0", j);`
-and currying can be achieved with `i => j => k => valueFactory(i, j, k);`.
+great support through lambdas already.
 
-Perhaps Zip, ZipLongest, Call, Apply may be considered in the future, along with up to 16 tuples
-per function.
+Bind is already possible so no changes in relation to this:
 
-Apply will be included soon as method groups assumes a single argument. Hence tuples
-needs to be declared as the argument even though arguments basically are tuples. Hence a method group
-is only usable as such:
+    (i, j) => valueFactory(i, "value0", j);
 
+Currying is achieved with:
 
-        Func<Tuple<int, string>, string> func2 = a => $"{a.Item1}{a.Item2}";
-        var value = iterable0.Select(func2);
+    i => j => k => valueFactory(i, j, k);
 
-
-**Restore dependencies:**
+# Restore dependencies
 
     $ dotnet restore
     log  : Restore completed in 101ms.
 
-
-**Running tests:**
+# Running tests
 
     $ dotnet test
 
 
-**Start the application:**
+# Start the application
 
     $ dotnet run
