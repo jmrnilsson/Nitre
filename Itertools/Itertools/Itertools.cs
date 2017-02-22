@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Itertools.Functions;
 
 namespace Itertools
@@ -235,6 +236,29 @@ namespace Itertools
                 repeat
             );
         }
+
+        #endregion
+
+        #region 14_TAKEWHILE
+
+        public static IEnumerable<TSource> TakeWhile<TSource>
+        (
+            IEnumerable<TSource> source,
+            Func<TSource, int, bool> predicate
+        )
+        {
+            return source.TakeWhile(predicate);
+        }
+
+        public static IEnumerable<TSource> TakeWhile<TSource>
+        (
+            IEnumerable<TSource> source,
+            Func<TSource, bool> predicate
+        )
+        {
+            return source.TakeWhile(predicate);
+        }
+
 
         #endregion
     }

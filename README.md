@@ -7,26 +7,26 @@ This app requires [.NET core ~1.0](https://www.microsoft.com/net/core).
 
 List of features ported.
 
-Nr | Method | Implemented
------------- | ------------- | -------------
-1 | count | :white_check_mark:
-2 | cycle | -
-3 | repeat | -
-4 | chain | -
-5 | compress | -
-6 | dropwhile | -
-7 | groupby | -
-8 | filter | -
-9 | filterfalse | -
-10 | slice | -
-11 | map | -
-12 | starmap | :white_check_mark:
-13 | tee | -
-14 | takewhile | -
-15 | product | :white_check_mark:
-16 | permutations | -
-17 | combinations | -
-18 | combinations_with_replacements | -
+Type | Nr | Method | Implemented
+------------ | ------------- | ------------- | -------------
+INFINITE | 1 | count | :white_check_mark:
+INFINITE | 2 | cycle | -
+INFINITE | 3 | repeat | -
+SHORT TERMINATION | 4 | chain | -
+SHORT TERMINATION | 5 | compress | -
+SHORT TERMINATION | 6 | dropwhile | -
+SHORT TERMINATION | 7 | groupby | -
+SHORT TERMINATION | 8 | filter | -
+SHORT TERMINATION | 9 | filterfalse | -
+SHORT TERMINATION | 10 | slice | -
+SHORT TERMINATION | 11 | map | -
+SHORT TERMINATION | 12 | starmap | :white_check_mark:
+SHORT TERMINATION | 13 | tee | -
+SHORT TERMINATION | 14 | takewhile | :white_check_mark:
+COMBINATORIC | 15 | product | :white_check_mark:
+COMBINATORIC | 16 | permutations | -
+COMBINATORIC | 17 | combinations | -
+COMBINATORIC | 18 | combinations_with_replacements | -
 
 ## Planned changes
 This library will probably include a few basic operations in addition to those listed above because

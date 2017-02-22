@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Itertools.Functions
+namespace Itertools
 {
     internal static class ApplyFunction
     {

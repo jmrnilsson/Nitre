@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using static Itertools.Functions.ApplyFunction;
+using static Itertools.ApplyFunction;
 
 namespace Itertools.Functions
 {
