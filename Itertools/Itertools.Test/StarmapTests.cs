@@ -7,7 +7,7 @@ namespace Itertools.Test
     public class StarmapTests
     {
         [Fact]
-        public void For2Tuples()
+        public void WithTwoTuples()
         {
             var iterable0 = new[] {Tuple.Create(1, "first"), Tuple.Create(3, "second")};
             var actual = Itertools.Starmap((a, b) => $"{a}{b}", iterable0);
@@ -21,7 +21,7 @@ namespace Itertools.Test
         }
 
         [Fact]
-        public void For7Tuples()
+        public void WithSevenTuples()
         {
             var iterable0 = new[] {Tuple.Create("A", 101, 1.2m, 0, 0, 1, 3), Tuple.Create("B", 3, .3m, 1, 1, 1, 1)};
             var actual = Itertools.Starmap(Reduce7Arguments, iterable0).ToList();

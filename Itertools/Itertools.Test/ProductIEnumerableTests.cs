@@ -8,7 +8,7 @@ namespace Itertools.Test
     public class ProductIEnumerableTest
     {
         [Fact]
-        public void ForTwoLists()
+        public void WithTwoLists()
         {
             var expected0 = new Tuple<int, char>(1, 'A');
             var expected2 = new Tuple<int, char>(1, 'C');

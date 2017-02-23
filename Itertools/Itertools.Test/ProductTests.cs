@@ -7,7 +7,7 @@ namespace Itertools.Test
     public class ProductTest
     {
         [Fact]
-        public void ForWithRepeat()
+        public void WithRepeat()
         {
             var expected1 = new Tuple<int, char>(1, 'C');
             var expected29 = new Tuple<int, char>(5, 'C');
