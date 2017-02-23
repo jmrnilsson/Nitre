@@ -16,11 +16,12 @@ namespace Itertools
 
         internal static TResult Apply<T1, T2, T3, TResult>
         (
-            Func<T1, T2, T3, TResult> valueFactory,
-            Tuple<T1, T2, T3> tuple
+            Func<T1, T2, T3, int, TResult> valueFactory,
+            Tuple<T1, T2, T3> tuple,
+            int index
         )
         {
-            return valueFactory(tuple.Item1, tuple.Item2, tuple.Item3);
+            return valueFactory(tuple.Item1, tuple.Item2, tuple.Item3, index);
         }
 
         internal static TResult Apply<T1, T2, T3, T4, TResult>
@@ -67,5 +68,16 @@ namespace Itertools
                 tuple.Item7
             );
         }
+
+        #region WITH_INDEX
+        internal static TResult Apply<T1, T2, T3, TResult>
+        (
+            Func<T1, T2, T3, TResult> valueFactory,
+            Tuple<T1, T2, T3> tuple
+        )
+        {
+            return valueFactory(tuple.Item1, tuple.Item2, tuple.Item3);
+        }
+        #endregion
     }
 }

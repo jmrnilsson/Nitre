@@ -3,7 +3,7 @@ using Xunit;
 
 namespace Itertools.Test
 {
-    public class FilterFalse
+    public class FilterFalseTests
     {
         [Fact]
         public void ForIndexed()

@@ -54,17 +54,17 @@ For example a cartesian product can be described as:
 ```csharp
     var libraries =
         from l in Libraries
-        join m in Municipality on l.MunicipalityId equals m.MunicipalityId
-        from c in Country
+        join m in Municipalities on l.MunicipalityId equals m.MunicipalityId
+        from c in Countries
         where c.IsoCode equals m.IsoCode || "GP" == c.IsoCode
-        select new l;
+        select l;
 ```
 
 Instead it's intended to make use of tuples for applying functions similar to parameter unpacking:
 
 ```csharp
     var libraries =
-        Product(Libraries, Municipality, Country)
+        Product(Libraries, Municipalities, Countries)
         .Filter((l, m, _) => l.MunicipalityId == m.MunicipalityId)
         .Filter((_, m, c) => m.IsoCode == c.IsoCode || "GP" == c.IsoCode)
         .Select(t => t.Item1);

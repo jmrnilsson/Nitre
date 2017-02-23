@@ -5,7 +5,7 @@ using Itertools.Functions;
 
 namespace Itertools
 {
-    public class Itertools
+    public static class Itertools
     {
         #region 1_Count
         public static IEnumerable<int> Count(int start, int step=1)
@@ -29,9 +29,80 @@ namespace Itertools
         }
         #endregion
 
-        #region 12_Product
+        #region 8_FILTER
+        public static IEnumerable<Tuple<T1, T2, T3>> Filter<T1, T2, T3>
+        (
+            Func<T1, T2, T3, bool> valueFactory,
+            IEnumerable<Tuple<T1, T2, T3>> iterable
+        )
+        {
+            return FilterFunction.Filter
+            (
+                valueFactory,
+                iterable
+            );
+        }
+        public static IEnumerable<Tuple<T1, T2, T3>> Filter<T1, T2, T3>
+        (
+            Func<T1, T2, T3, int, bool> valueFactory,
+            IEnumerable<Tuple<T1, T2, T3>> iterable
+        )
+        {
+            return FilterFunction.Filter
+            (
+                valueFactory,
+                iterable
+            );
+        }
 
+        public static IEnumerable<Tuple<T1, T2, T3>> Filter<T1, T2, T3>
+        (
+            this IEnumerable<Tuple<T1, T2, T3>> iterable,
+            Func<T1, T2, T3, bool> valueFactory
+        )
+        {
+            return FilterFunction.Filter
+            (
+                valueFactory,
+                iterable
+            );
+        }
 
+        public static IEnumerable<Tuple<T1, T2, T3>> Filter<T1, T2, T3>
+        (
+            this IEnumerable<Tuple<T1, T2, T3>> iterable,
+            Func<T1, T2, T3, int, bool> valueFactory
+        )
+        {
+            return FilterFunction.Filter
+            (
+                valueFactory,
+                iterable
+            );
+        }
+        #endregion
+
+        #region 9_FILTERFALSE
+        public static IEnumerable<TSource> FilterFalse<TSource>
+        (
+            IEnumerable<TSource> source,
+            Func<TSource, int, bool> predicate
+        )
+        {
+            return source.Where((it, i) => !predicate(it, i));
+        }
+
+        public static IEnumerable<TSource> FilterFalse<TSource>
+        (
+            IEnumerable<TSource> source,
+            Func<TSource, bool> predicate
+        )
+        {
+            return source.Where(it => !predicate(it));
+        }
+        #endregion
+
+        #region 12_STARMAP
         public static IEnumerable<TResult> Starmap<T1, T2, TResult>
         (
             Func<T1, T2, TResult> valueFactory,
@@ -253,26 +324,6 @@ namespace Itertools
         )
         {
             return source.TakeWhile(predicate);
-        }
-        #endregion
-
-        #region 9_FILTERFALSE
-        public static IEnumerable<TSource> FilterFalse<TSource>
-        (
-            IEnumerable<TSource> source,
-            Func<TSource, int, bool> predicate
-        )
-        {
-            return source.Where((it, i) => !predicate(it, i));
-        }
-
-        public static IEnumerable<TSource> FilterFalse<TSource>
-        (
-            IEnumerable<TSource> source,
-            Func<TSource, bool> predicate
-        )
-        {
-            return source.Where(it => !predicate(it));
         }
         #endregion
     }
