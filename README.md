@@ -54,7 +54,7 @@ For example a cartesian product can be described as:
 ```csharp
     var libraries =
         from l in Libraries
-        join m in Municipality on l.MunicipalityId equals co.MunicipalityId
+        join m in Municipality on l.MunicipalityId equals m.MunicipalityId
         from c in Country
         where c.IsoCode equals m.IsoCode || "GP" == c.IsoCode
         select new l;
