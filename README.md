@@ -9,14 +9,9 @@ List of features ported.
 
 Type | Nr | Method | Implemented
 ------------ | ------------- | ------------- | -------------
-INFINITE | 1 | count | :white_check_mark:
+unt | :white_check_m
 INFINITE | 2 | cycle | -
-INFINITE | 3 | repeat | -
-SHORT TERMINATION | 4 | chain | -
-SHORT TERMINATION | 5 | compress | -
-SHORT TERMINATION | 6 | dropwhile | -
-SHORT TERMINATION | 7 | groupby | -
-SHORT TERMINATION | 8 | filter | :hammer:
+INFINITE | 3 | repeat
 SHORT TERMINATION | 9 | filterfalse | :hammer:
 SHORT TERMINATION | 10 | slice | -
 SHORT TERMINATION | 11 | map | -
