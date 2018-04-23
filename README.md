@@ -16,7 +16,7 @@ SHORT TERMINATION | 4 | chain | -
 SHORT TERMINATION | 5 | compress | -
 SHORT TERMINATION | 6 | dropwhile | -
 SHORT TERMINATION | 7 | groupby | -
-SHORT TERMINATION | 8 | filter | :hammer:
+SHORT TERMINATION | 8 | filter | :white_check_mark:
 SHORT TERMINATION | 9 | filterfalse | :hammer:
 SHORT TERMINATION | 10 | slice | -
 SHORT TERMINATION | 11 | map | -
