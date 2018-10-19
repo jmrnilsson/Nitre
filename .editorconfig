@@ -1,0 +1,8 @@
+# https://docs.microsoft.com/en-us/visualstudio/ide/create-portable-custom-editor-options?view=vs-2017
+# https://editorconfig.org/
+# https://www.hanselman.com/blog/TabsVsSpacesAPeacefulResolutionWithEditorConfigInVisualStudioPlusNETExtensions.aspx
+
+[*.cs]
+indent_style = tab
+indent_size = tab
+tab_size = 2
