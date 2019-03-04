@@ -2,7 +2,19 @@
 # https://editorconfig.org/
 # https://www.hanselman.com/blog/TabsVsSpacesAPeacefulResolutionWithEditorConfigInVisualStudioPlusNETExtensions.aspx
 
+# Supported things in vs pro 2017
+# - indent_style
+# - indent_size
+# - tab_width
+# - end_of_line
+# - charset
+# - trim_trailing_whitespace
+# - insert_final_newline
+# - root
+
 [*.cs]
+end_of_line = crlf
 indent_style = tab
-indent_size = tab
-tab_size = 2
+indent_size = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
