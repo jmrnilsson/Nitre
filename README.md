@@ -1,5 +1,5 @@
 This is a reimagination of Pythons popular Itertools module for C#. Albeit LINQ provides syntactically simple
-expressions there is still a few things that Itertools does really well and makes sense in C#. Most of those
+expressions there is still a few things that Itertools does really well whilst making sense in C#. Most of those
 things seem to evolve around the use of tuples or infinite collections. Features for enumerables are
 already decently covered in the `System.Linq-namespace`.
 
