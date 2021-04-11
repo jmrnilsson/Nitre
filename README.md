@@ -14,10 +14,10 @@ Infinite | 2 | cycle | - |
 Infinite | 3 | repeat | - |
 Short termination | 4 | chain | - |
 Short termination | 5 | compress | - |
-Short termination | 6 | dropwhile | - |
+Short termination | 6 | dropwhile | :white_check_mark: |
 Short termination | 7 | groupby | - |
 Short termination | 8 | filter | :white_check_mark: | Also overloads index
-Short termination | 9 | filterfalse | :hammer: | Also overloads index
+Short termination | 9 | filterfalse | :white_check_mark:  | Also overloads index
 Short termination | 10 | slice | - |
 Short termination | 11 | map | - |
 Short termination | 12 | starmap | :white_check_mark: |

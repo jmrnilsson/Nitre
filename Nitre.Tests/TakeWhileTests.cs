@@ -3,7 +3,7 @@ using Xunit;
 
 namespace Nitre.Test
 {
-    public class TakeWhileTests
+	public class TakeWhileTests
     {
         [Fact]
         public void ForIndexed()
@@ -16,10 +16,10 @@ namespace Nitre.Test
         }
 
         [Fact]
-        public void ForNonIndexed()
+        public void ForNonIndexed_AndOverloaded()
         {
             var iterable0 = Enumerable.Range(0, 12);
-            var actual = Itertools.TakeWhile(iterable0, it => it < 4).ToList();
+            var actual = iterable0.TakeWhile(it => it < 4).ToList();
 
             Assert.Equal(4, actual.Count);
             Assert.Equal(3, actual[3]);

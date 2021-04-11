@@ -29,6 +29,26 @@ namespace Nitre
         }
 		#endregion
 
+		#region 14_DROPWHILE
+		public static IEnumerable<TSource> DropWhile<TSource>
+		(
+			this IEnumerable<TSource> source,
+			Func<TSource, int, bool> predicate
+		)
+		{
+			return source.SkipWhile(predicate);
+		}
+
+		public static IEnumerable<TSource> DropWhile<TSource>
+		(
+			this IEnumerable<TSource> source,
+			Func<TSource, bool> predicate
+		)
+		{
+			return source.SkipWhile(predicate);
+		}
+		#endregion
+
 		#region 8_FILTER
 		public static IEnumerable<TSource> Filter<TSource>
 		(
@@ -277,7 +297,7 @@ namespace Nitre
         #region 14_TAKEWHILE
         public static IEnumerable<TSource> TakeWhile<TSource>
         (
-            IEnumerable<TSource> source,
+			this IEnumerable<TSource> source,
             Func<TSource, int, bool> predicate
         )
         {
@@ -286,7 +306,7 @@ namespace Nitre
 
         public static IEnumerable<TSource> TakeWhile<TSource>
         (
-            IEnumerable<TSource> source,
+            this IEnumerable<TSource> source,
             Func<TSource, bool> predicate
         )
         {
