@@ -18,7 +18,7 @@ Short termination | 6 | dropwhile | :white_check_mark: |
 Short termination | 7 | groupby | - |
 Short termination | 8 | filter | :white_check_mark: | Also overloads index
 Short termination | 9 | filterfalse | :white_check_mark:  | Also overloads index
-Short termination | 10 | slice | - |
+Short termination | 10 | islice | :white_check_mark: |
 Short termination | 11 | map | - |
 Short termination | 12 | starmap | :white_check_mark: |
 Short termination | 13 | tee | - |

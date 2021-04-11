@@ -7,7 +7,7 @@ namespace Nitre.Functions
 {
     public static class ProductFunction
     {
-        #region ProducrEnumerable
+        #region ProductEnumerable
         public static IEnumerable<Tuple<T1, T2>> Product<T1, T2>
         (
             IEnumerable<T1> iterable0,

@@ -7,7 +7,7 @@ namespace Nitre
 {
     public static class Itertools
     {
-        #region 1_Count
+        #region 1_COUNT
         public static IEnumerable<int> Count(int start, int step=1)
         {
             return CountFunction.Count(start, x => x + step);
@@ -29,7 +29,7 @@ namespace Nitre
         }
 		#endregion
 
-		#region 14_DROPWHILE
+		#region 6_DROPWHILE
 		public static IEnumerable<TSource> DropWhile<TSource>
 		(
 			this IEnumerable<TSource> source,
@@ -87,10 +87,23 @@ namespace Nitre
         {
             return source.Where(it => !predicate(it));
         }
-        #endregion
+		#endregion
 
-        #region 12_STARMAP
-        public static IEnumerable<TResult> Starmap<T1, T2, TResult>
+		#region 10_SLICE
+		public static IEnumerable<TSource> Islice<TSource>
+		(
+			this IEnumerable<TSource> source,
+			int start,
+			int stop,
+			int step = 1
+		)
+		{
+			return IsliceFunction.Islice(source, start, stop, step);
+		}
+		#endregion
+
+		#region 12_STARMAP
+		public static IEnumerable<TResult> Starmap<T1, T2, TResult>
         (
             Func<T1, T2, TResult> valueFactory,
             IEnumerable<Tuple<T1, T2>> iterable
@@ -169,7 +182,7 @@ namespace Nitre
         }
         #endregion
 
-        #region 15_product
+        #region 15_PRODUCT
         public static IEnumerable<Tuple<T1, T2>> Product<T1, T2>
         (
             IEnumerable<T1> iterable0,

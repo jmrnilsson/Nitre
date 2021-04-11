@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Nitre.Functions
 {
-    internal static class CountFunction
+	internal static class CountFunction
     {
         internal static IEnumerable<T> Count<T>(T start, Func<T, T> step) where T : struct
         {
