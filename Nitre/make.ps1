@@ -4,10 +4,10 @@
 
 Param([Parameter(Mandatory=$False,Position=1)] [string]$Command)
 $initialPath = $PWD
-$itertoolsPath = Join-Path -Path $initialPath -ChildPath "Itertools"
+$itertoolsPath = Join-Path -Path $initialPath -ChildPath "Nitre"
 $itertoolsProjectPath = Join-Path -Path $itertoolsPath -ChildPath "project.json"
 $itertoolsProjectLockPath = Join-Path -Path $itertoolsPath -ChildPath "project.lock.json"
-$itertoolsTestPath = Join-Path -Path $initialPath -ChildPath "Itertools.Test"
+$itertoolsTestPath = Join-Path -Path $initialPath -ChildPath "Nitre.Tests"
 $itertoolsTestProjectPath = Join-Path -Path $itertoolsTestPath -ChildPath "project.json"
 $itertoolsTestProjectLockPath = Join-Path -Path $itertoolsTestPath -ChildPath "project.lock.json"
 
