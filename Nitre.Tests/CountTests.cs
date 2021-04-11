@@ -10,7 +10,7 @@ namespace Nitre.Test
         [Fact]
         public void ForIntegerWithStep()
         {
-            var actual = Itertools.Count(0, 3).Take(10).ToList();
+            var actual = Nitre.Count(0, 3).Take(10).ToList();
 
             Assert.StrictEqual(10, actual.Count);
             Assert.Equal(0, actual[0]);
@@ -20,7 +20,7 @@ namespace Nitre.Test
         [Fact]
         public void ForFloatWithNegativeStep()
         {
-            var actual = Itertools.Count(6f, -7f).Take(3).ToList();
+            var actual = Nitre.Count(6f, -7f).Take(3).ToList();
 
             Assert.Equal(new List<float> {6f, -1f, -8}, actual);
         }
@@ -28,7 +28,7 @@ namespace Nitre.Test
         [Fact]
         public void ForNegativeDoubleWithoutStep()
         {
-            var actual = Itertools.Count(-2d).Take(3).ToList();
+            var actual = Nitre.Count(-2d).Take(3).ToList();
 
             Assert.Equal(new List<double> {-2d, -1d, 0d}, actual);
         }
@@ -36,7 +36,7 @@ namespace Nitre.Test
         [Fact]
         public void ForDecimalWithStep()
         {
-            var actual = Itertools.Count(1.1m, -0.4m).Take(3).ToList();
+            var actual = Nitre.Count(1.1m, -0.4m).Take(3).ToList();
 
             Assert.Equal(new List<decimal> {1.1m, 0.7m, 0.3m}, actual);
         }
@@ -44,7 +44,7 @@ namespace Nitre.Test
         [Fact]
         public void ForAllTypes()
         {
-            var actual = typeof(Itertools).GetMethods(BindingFlags.Public | BindingFlags.Static)
+            var actual = typeof(Nitre).GetMethods(BindingFlags.Public | BindingFlags.Static)
                 .Where(mi => mi.Name == "Count")
                 .Select(mi => mi.GetParameters()[0].ParameterType)
                 .ToList();

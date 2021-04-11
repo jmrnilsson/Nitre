@@ -11,7 +11,7 @@ namespace Nitre.Test
 		public void DefaultStep()
 		{
 			var iterable0 = Enumerable.Range(0, 20);
-			var actual = Itertools.Islice(iterable0, 15, 20);
+			var actual = Nitre.Islice(iterable0, 15, 20);
 
 			Assert.Equal(new List<int> { 15, 16, 17, 18, 19 }, actual);
 		}
@@ -20,18 +20,18 @@ namespace Nitre.Test
 		public void ForNegativeValues()
 		{
 			var iterable0 = Enumerable.Range(0, 2);
-			var actual = Itertools.Islice(iterable0, 0, -1, 0);
+			var actual = Nitre.Islice(iterable0, 0, -1, 0);
 
-			Assert.Throws<ArgumentException>(() => Itertools.Islice(iterable0, 0, -1, 0));
-			Assert.Throws<ArgumentException>(() => Itertools.Islice(iterable0, 1, 3, -2));
-			Assert.Throws<ArgumentException>(() => Itertools.Islice(iterable0, -23, 0, 0));
+			Assert.Throws<ArgumentException>(() => Nitre.Islice(iterable0, 0, -1, 0));
+			Assert.Throws<ArgumentException>(() => Nitre.Islice(iterable0, 1, 3, -2));
+			Assert.Throws<ArgumentException>(() => Nitre.Islice(iterable0, -23, 0, 0));
 		}
 
 		[Fact]
 		public void OutOfBounds()
 		{
 			var iterable0 = Enumerable.Range(0, 3);
-			var actual = Itertools.Islice(iterable0, 0, 5);
+			var actual = Nitre.Islice(iterable0, 0, 5);
 
 			Assert.Equal(new List<int> { 0, 1, 2 }, actual);
 		}

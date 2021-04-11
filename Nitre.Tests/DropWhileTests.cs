@@ -10,7 +10,7 @@ namespace Nitre.Test
         public void ForIndexed()
         {
             var iterable0 = Enumerable.Range(0, 12);
-            var actual = Itertools.DropWhile(iterable0, (it, index) => index < 9 || it % 3 == 0).ToList();
+            var actual = Nitre.DropWhile(iterable0, (it, index) => index < 9 || it % 3 == 0).ToList();
 
             Assert.Equal(new List<int> { 10, 11 }, actual);
         }

@@ -10,7 +10,7 @@ namespace Nitre.Test
         public void ForIndexed()
         {
             var iterable0 = Enumerable.Range(0, 12);
-            var actual = Itertools.FilterFalse(iterable0, (it, i) => i % 2 == 0 && it % 3 == 0).ToList();
+            var actual = Nitre.FilterFalse(iterable0, (it, i) => i % 2 == 0 && it % 3 == 0).ToList();
 
             Assert.Equal(10, actual.Count);
             Assert.DoesNotContain(6, actual);
@@ -21,7 +21,7 @@ namespace Nitre.Test
         public void ForNonIndexed()
         {
             var iterable0 = Enumerable.Range(0, 12);
-            var actual = Itertools.FilterFalse(iterable0, it => it < 4).ToList();
+            var actual = Nitre.FilterFalse(iterable0, it => it < 4).ToList();
 
             Assert.Equal(8, actual.Count);
             Assert.DoesNotContain(2, actual);

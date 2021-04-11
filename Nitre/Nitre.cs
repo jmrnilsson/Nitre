@@ -5,7 +5,7 @@ using Nitre.Functions;
 
 namespace Nitre
 {
-    public static class Itertools
+    public static class Nitre
     {
         #region 1_COUNT
         public static IEnumerable<int> Count(int start, int step=1)

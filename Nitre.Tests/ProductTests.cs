@@ -16,7 +16,7 @@ namespace Nitre.Test
 
             var iterable0 = Enumerable.Range(1, 3);
             var iterable1 = Utils.RangeOfChars(4);
-            var actual = Itertools.Product(iterable0, iterable1).ToList();
+            var actual = Nitre.Product(iterable0, iterable1).ToList();
 
             Assert.StrictEqual(actual.Count, 12);
             Assert.Equal(expected0, actual[0]);
@@ -32,7 +32,7 @@ namespace Nitre.Test
 
             var iterable0 = Enumerable.Range(1, 5);
             var iterable1 = Utils.RangeOfChars(3);
-            var actual = Itertools.Product(iterable0, iterable1, 2).ToList();
+            var actual = Nitre.Product(iterable0, iterable1, 2).ToList();
 
             Assert.StrictEqual(actual.Count, 30);
             Assert.Equal(expected1, actual[2]);
@@ -43,7 +43,7 @@ namespace Nitre.Test
         [Fact]
         public void WithInvalidRepeatThrows()
         {
-            Action action = () => Itertools.Product(new int[]{}, new int[]{}, -1).ToList();
+            Action action = () => Nitre.Product(new int[]{}, new int[]{}, -1).ToList();
 
             Assert.Throws<ArgumentException>(action);
         }
@@ -66,7 +66,7 @@ namespace Nitre.Test
                 'C', 'D', 'E', 'F', 'G', 'H', 'G'
             );
 
-            var actual = Itertools.Product
+            var actual = Nitre.Product
             (
                 iterables[0],
                 iterables[1],

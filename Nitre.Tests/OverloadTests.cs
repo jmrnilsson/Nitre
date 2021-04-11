@@ -12,7 +12,7 @@ namespace Nitre.Test
             var iterables = Create();
 
             var actual =
-                Itertools.Product(iterables.Item1, iterables.Item2, iterables.Item3)
+                Nitre.Product(iterables.Item1, iterables.Item2, iterables.Item3)
                 .Filter(item => item.Item1.MunicipalityId == item.Item2.MunicipalityId)
                 .Filter(item => item.Item2.IsoCode == item.Item3.IsoCode || "GB" == item.Item3.IsoCode)
                 .ToArray();

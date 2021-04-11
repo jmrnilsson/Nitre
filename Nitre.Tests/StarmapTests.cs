@@ -10,7 +10,7 @@ namespace Nitre.Test
         public void WithTwoTuples()
         {
             var iterable0 = new[] {Tuple.Create(1, "first"), Tuple.Create(3, "second")};
-            var actual = Itertools.Starmap((a, b) => $"{a}{b}", iterable0);
+            var actual = Nitre.Starmap((a, b) => $"{a}{b}", iterable0);
 
             Assert.StrictEqual("1first3second", string.Join("", actual));
         }
@@ -24,7 +24,7 @@ namespace Nitre.Test
         public void WithSevenTuples()
         {
             var iterable0 = new[] {Tuple.Create("A", 101, 1.2m, 0, 0, 1, 3), Tuple.Create("B", 3, .3m, 1, 1, 1, 1)};
-            var actual = Itertools.Starmap(Reduce7Arguments, iterable0).ToList();
+            var actual = Nitre.Starmap(Reduce7Arguments, iterable0).ToList();
 
             Assert.Equal("A", actual[0].name);
             Assert.Equal(4, actual[0].sum);
