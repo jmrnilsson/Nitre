@@ -1,9 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using static Itertools.ApplyFunction;
+using static Nitre.ApplyFunction;
 
-namespace Itertools.Functions
+namespace Nitre.Functions
 {
     public static class ProductFunction
     {

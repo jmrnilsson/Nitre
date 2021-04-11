@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Itertools
+namespace Nitre
 {
     internal static class ApplyFunction
     {

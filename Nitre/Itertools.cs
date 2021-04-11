@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Itertools.Functions;
+using Nitre.Functions;
 
-namespace Itertools
+namespace Nitre
 {
     public static class Itertools
     {

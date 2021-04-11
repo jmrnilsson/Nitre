@@ -2,7 +2,7 @@
 using System.Linq;
 using Xunit;
 
-namespace Itertools.Test
+namespace Nitre.Test
 {
     public class ExtensionsTests
     {

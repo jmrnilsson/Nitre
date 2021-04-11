@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Itertools.Functions
+namespace Nitre.Functions
 {
     internal static class CountFunction
     {
