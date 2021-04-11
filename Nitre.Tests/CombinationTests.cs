@@ -4,7 +4,7 @@ using Xunit;
 
 namespace Itertools.Test
 {
-    public class CombinationTests
+    public class OverloadTests
     {
         [Fact]
         public void ProductFilter()
@@ -13,8 +13,8 @@ namespace Itertools.Test
 
             var actual =
                 Itertools.Product(iterables.Item1, iterables.Item2, iterables.Item3)
-                .Filter((l, m, _) => l.MunicipalityId == m.MunicipalityId)
-                .Filter((_, m, c) => m.IsoCode == c.IsoCode || "GB" == c.IsoCode)
+                .Filter(item => item.Item1.MunicipalityId == item.Item2.MunicipalityId)
+                .Filter(item => item.Item2.IsoCode == item.Item3.IsoCode || "GB" == item.Item3.IsoCode)
                 .ToArray();
 
             var countries = actual.Select(t => t.Item3.IsoCode).ToArray();

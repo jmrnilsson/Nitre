@@ -3,30 +3,30 @@ expressions there is still a few things that Itertools does really well whilst m
 things seem to evolve around the use of tuples or infinite collections. Features for enumerables are
 already decently covered in the `System.Linq-namespace`.
 
-This app requires [.NET Core ~1.0](https://www.microsoft.com/net/core) and [PowerShell](https://github.com/PowerShell/PowerShell)
+This app requires [.NET Core](https://www.microsoft.com/net/core). [PowerShell](https://github.com/PowerShell/PowerShell) is optional.
 
 List of features ported.
 
-Type | Nr | Method | Implemented
------------- | ------------- | ------------- | -------------
-INFINITE | 1 | count | :white_check_mark:
-INFINITE | 2 | cycle | -
-INFINITE | 3 | repeat | -
-SHORT TERMINATION | 4 | chain | -
-SHORT TERMINATION | 5 | compress | -
-SHORT TERMINATION | 6 | dropwhile | -
-SHORT TERMINATION | 7 | groupby | -
-SHORT TERMINATION | 8 | filter | :white_check_mark:
-SHORT TERMINATION | 9 | filterfalse | :hammer:
-SHORT TERMINATION | 10 | slice | -
-SHORT TERMINATION | 11 | map | -
-SHORT TERMINATION | 12 | starmap | :white_check_mark:
-SHORT TERMINATION | 13 | tee | -
-SHORT TERMINATION | 14 | takewhile | :white_check_mark:
-COMBINATORIC | 15 | product | :white_check_mark:
-COMBINATORIC | 16 | permutations | -
-COMBINATORIC | 17 | combinations | -
-COMBINATORIC | 18 | combinations_with_replacements | -
+Type | Nr | Method | Implemented | Comment
+------------ | ------------- | ------------- | ------------- | -------------
+Infinite | 1 | count | :white_check_mark:  | 
+Infinite | 2 | cycle | - |
+Infinite | 3 | repeat | - |
+Short termination | 4 | chain | - |
+Short termination | 5 | compress | - |
+Short termination | 6 | dropwhile | - |
+Short termination | 7 | groupby | - |
+Short termination | 8 | filter | :white_check_mark: | Also overloads index
+Short termination | 9 | filterfalse | :hammer: | Also overloads index
+Short termination | 10 | slice | - |
+Short termination | 11 | map | - |
+Short termination | 12 | starmap | :white_check_mark: |
+Short termination | 13 | tee | - |
+Short termination | 14 | takewhile | :white_check_mark: |
+Combinatoric | 15 | product | :white_check_mark: |
+Combinatoric | 16 | permutations | - |
+Combinatoric | 17 | combinations | - |
+Combinatoric | 18 | combinations_with_replacements | - |
 
 ## Planned changes
 This library will probably include a few basic operations in addition to those listed above because
@@ -65,7 +65,7 @@ Instead it's intended to make use of tuples for applying functions similar to pa
 ```csharp
     var libraries =
         Product(Libraries, Municipalities, Countries)
-        .Filter((l, m, _) => l.MunicipalityId == m.MunicipalityId)
-        .Filter((_, m, c) => m.IsoCode == c.IsoCode || "GP" == c.IsoCode)
+        .Filter((item => item.Item1.MunicipalityId == item.Item2.MunicipalityId)
+        .Filter(item => item.Item2.IsoCode == item.Item3.IsoCode || "GP" == item.Item3.IsoCode)
         .Select(t => t.Item1);
 ```

@@ -27,59 +27,26 @@ namespace Itertools
         {
             return CountFunction.Count(start, x => x + step);
         }
-        #endregion
+		#endregion
 
-        #region 8_FILTER
-        public static IEnumerable<Tuple<T1, T2, T3>> Filter<T1, T2, T3>
-        (
-            Func<T1, T2, T3, bool> valueFactory,
-            IEnumerable<Tuple<T1, T2, T3>> iterable
-        )
-        {
-            return FilterFunction.Filter
-            (
-                valueFactory,
-                iterable
-            );
-        }
-        public static IEnumerable<Tuple<T1, T2, T3>> Filter<T1, T2, T3>
-        (
-            Func<T1, T2, T3, int, bool> valueFactory,
-            IEnumerable<Tuple<T1, T2, T3>> iterable
-        )
-        {
-            return FilterFunction.Filter
-            (
-                valueFactory,
-                iterable
-            );
-        }
+		#region 8_FILTER
+		public static IEnumerable<TSource> Filter<TSource>
+		(
+			this IEnumerable<TSource> source,
+			Func<TSource, int, bool> predicate
+		)
+		{
+			return source.Where((it, i) => predicate(it, i));
+		}
 
-        public static IEnumerable<Tuple<T1, T2, T3>> Filter<T1, T2, T3>
-        (
-            this IEnumerable<Tuple<T1, T2, T3>> iterable,
-            Func<T1, T2, T3, bool> valueFactory
-        )
-        {
-            return FilterFunction.Filter
-            (
-                valueFactory,
-                iterable
-            );
-        }
-
-        public static IEnumerable<Tuple<T1, T2, T3>> Filter<T1, T2, T3>
-        (
-            this IEnumerable<Tuple<T1, T2, T3>> iterable,
-            Func<T1, T2, T3, int, bool> valueFactory
-        )
-        {
-            return FilterFunction.Filter
-            (
-                valueFactory,
-                iterable
-            );
-        }
+		public static IEnumerable<TSource> Filter<TSource>
+		(
+			this IEnumerable<TSource> source,
+			Func<TSource, bool> predicate
+		)
+		{
+			return source.Where(it => predicate(it));
+		}
         #endregion
 
         #region 9_FILTERFALSE
