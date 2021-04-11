@@ -52,7 +52,7 @@ namespace Nitre
         #region 9_FILTERFALSE
         public static IEnumerable<TSource> FilterFalse<TSource>
         (
-            IEnumerable<TSource> source,
+			this IEnumerable<TSource> source,
             Func<TSource, int, bool> predicate
         )
         {
@@ -61,7 +61,7 @@ namespace Nitre
 
         public static IEnumerable<TSource> FilterFalse<TSource>
         (
-            IEnumerable<TSource> source,
+            this IEnumerable<TSource> source,
             Func<TSource, bool> predicate
         )
         {

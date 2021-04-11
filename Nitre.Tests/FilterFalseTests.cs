@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System.Collections.Generic;
+using System.Linq;
 using Xunit;
 
 namespace Nitre.Test
@@ -25,6 +26,15 @@ namespace Nitre.Test
             Assert.Equal(8, actual.Count);
             Assert.DoesNotContain(2, actual);
             Assert.Contains(4, actual);
+        }
+
+        [Fact]
+        public void ForOverload()
+        {
+            var iterable0 = Enumerable.Range(0, 12);
+            var actual = iterable0.FilterFalse(it => it > 4).ToList();
+
+            Assert.Equal(new List<int> { 0, 1, 2, 3, 4 }, actual);
         }
     }
 }
