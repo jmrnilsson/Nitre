@@ -5,7 +5,7 @@ using Xunit;
 
 namespace Nitre.Test
 {
-    public class ProductTest
+    public class ProductTestss
     {
         [Fact]
         public void WithTwoLists()
@@ -18,7 +18,7 @@ namespace Nitre.Test
             var iterable1 = Utils.RangeOfChars(4);
             var actual = Nitre.Product(iterable0, iterable1).ToList();
 
-            Assert.StrictEqual(actual.Count, 12);
+            Assert.StrictEqual(12, actual.Count);
             Assert.Equal(expected0, actual[0]);
             Assert.Equal(expected2, actual[2]);
             Assert.Equal(expected11, actual[11]);
@@ -34,7 +34,7 @@ namespace Nitre.Test
             var iterable1 = Utils.RangeOfChars(3);
             var actual = Nitre.Product(iterable0, iterable1, 2).ToList();
 
-            Assert.StrictEqual(actual.Count, 30);
+            Assert.StrictEqual(30, actual.Count);
             Assert.Equal(expected1, actual[2]);
             Assert.Equal(expected29, actual[29]);
             Assert.Equal(actual[13], actual[28]);
@@ -81,5 +81,20 @@ namespace Nitre.Test
             Assert.Equal(expected2, actual[2]);
             Assert.Equal(expected2184, actual[2184]);
         }
-    }
+
+		/// <summary>
+		/// Example from https://docs.python.org/3/library/itertools.html#module-itertools
+		/// </summary>
+		[Fact]
+		public void Verified_Example()
+		{
+			var iterables = "ABCD".ToCharArray();
+
+			// var actual = new string(Nitre.Product(iterables, repeat: 2).ToArray());
+			var expected = new List<string> { "AA", "AB", "AC", "AD", "BA", "BB", "BC", "BD", "CA", "CB", "CC", "CD", "DA", "DB", "DC", "DD" };
+
+			Assert.False(true);
+			Assert.Equal(expected, new List<string> { "actual" });
+		}
+	}
 }

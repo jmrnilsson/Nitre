@@ -12,7 +12,7 @@ namespace Nitre.Test
             var iterable0 = new[] {Tuple.Create(1, "first"), Tuple.Create(3, "second")};
             var actual = Nitre.Starmap((a, b) => $"{a}{b}", iterable0);
 
-            Assert.StrictEqual("1first3second", string.Join("", actual));
+            Assert.Equal("1first-3second", string.Join("-", actual));
         }
 
         private dynamic Reduce7Arguments(string a, int b, decimal c, int d, int e, int f, int g)

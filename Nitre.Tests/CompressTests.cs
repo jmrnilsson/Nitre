@@ -17,7 +17,7 @@ namespace Nitre.Test
 		}
 
 		[Fact]
-		public void BooleansLonger_NotVerified()
+		public void BooleansLonger_Unverified()
 		{
 			var values = Enumerable.Range(0, 5);
 			var booleans = new[] { false, true, false, true, false, false, true, true };
@@ -27,7 +27,7 @@ namespace Nitre.Test
 		}
 
 		[Fact]
-		public void ValuesLonger_NotVerified()
+		public void ValuesLonger_Unverified()
 		{
 			var values = Enumerable.Range(0, 4);
 			var booleans = new[] { false, true, false };
