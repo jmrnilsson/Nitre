@@ -29,6 +29,17 @@ namespace Nitre
         }
 		#endregion
 
+		#region 5_COMPRESS
+		public static IEnumerable<TSource> Compress<TSource>
+		(
+			this IEnumerable<TSource> source,
+			IEnumerable<bool> booleans
+		)
+		{
+			return CompressFunction.Compress<TSource>(source, booleans);
+		}
+		#endregion
+
 		#region 6_DROPWHILE
 		public static IEnumerable<TSource> DropWhile<TSource>
 		(

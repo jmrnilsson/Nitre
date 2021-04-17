@@ -13,7 +13,7 @@ Infinite | 1 | count | :white_check_mark:  |
 Infinite | 2 | cycle | - |
 Infinite | 3 | repeat | - |
 Short termination | 4 | chain | - |
-Short termination | 5 | compress | - |
+Short termination | 5 | compress |  :white_check_mark: |
 Short termination | 6 | dropwhile | :white_check_mark: |
 Short termination | 7 | groupby | - |
 Short termination | 8 | filter | :white_check_mark: | Also overloads index

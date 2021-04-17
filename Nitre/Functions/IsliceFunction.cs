@@ -4,6 +4,7 @@ using System.Linq;
 
 namespace Nitre.Functions
 {
+
 	internal static class IsliceFunction
 	{
 		internal static IEnumerable<T> Islice<T>(this IEnumerable<T> iterable, int start, int stop, int step)
