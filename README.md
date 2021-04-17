@@ -21,7 +21,7 @@ Short termination | 9 | filterfalse | :white_check_mark:  | Also overloads index
 Short termination | 10 | islice | :white_check_mark: |
 Short termination | 11 | map | - |
 Short termination | 12 | starmap | :white_check_mark: |
-Short termination | 13 | tee | - |
+Short termination | 13 | tee | - | Due to language design return tuple is defined by generics rather than argument.
 Short termination | 14 | takewhile | :white_check_mark: |
 Combinatoric | 15 | product | :white_check_mark: |
 Combinatoric | 16 | permutations | - |
