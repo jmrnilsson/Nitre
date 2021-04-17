@@ -325,7 +325,7 @@ namespace Nitre
             Func<TSource, int, bool> predicate
         )
         {
-            return source.TakeWhile(predicate);
+            return Enumerable.TakeWhile(source, predicate);
         }
 
         public static IEnumerable<TSource> TakeWhile<TSource>
@@ -334,7 +334,7 @@ namespace Nitre
             Func<TSource, bool> predicate
         )
         {
-            return source.TakeWhile(predicate);
+            return Enumerable.TakeWhile(source, predicate);
         }
         #endregion
     }

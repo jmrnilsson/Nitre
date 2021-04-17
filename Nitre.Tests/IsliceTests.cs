@@ -22,9 +22,9 @@ namespace Nitre.Test
 			var iterable0 = Enumerable.Range(0, 2);
 			var actual = Nitre.Islice(iterable0, 0, -1, 0);
 
-			Assert.Throws<ArgumentException>(() => Nitre.Islice(iterable0, 0, -1, 0));
-			Assert.Throws<ArgumentException>(() => Nitre.Islice(iterable0, 1, 3, -2));
-			Assert.Throws<ArgumentException>(() => Nitre.Islice(iterable0, -23, 0, 0));
+			Assert.Throws<ArgumentException>(() => Nitre.Islice(iterable0, 0, -1, 0).ToList());
+			Assert.Throws<ArgumentException>(() => Nitre.Islice(iterable0, 1, 3, -2).ToList());
+			Assert.Throws<ArgumentException>(() => Nitre.Islice(iterable0, -23, 0, 0).ToList());
 		}
 
 		[Fact]
