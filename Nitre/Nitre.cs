@@ -29,6 +29,13 @@ namespace Nitre
         }
 		#endregion
 
+		#region 2_CYCLE
+		public static IEnumerable<TSource> Cycle<TSource>(this IEnumerable<TSource> source)
+		{
+			return CycleFunction.Cycle(source);
+		}
+		#endregion
+
 		#region 5_COMPRESS
 		public static IEnumerable<TSource> Compress<TSource>
 		(

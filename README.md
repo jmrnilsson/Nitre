@@ -10,7 +10,7 @@ List of features ported.
 Type | Nr | Method | Implemented | Comment
 ------------ | ------------- | ------------- | ------------- | -------------
 Infinite | 1 | count | :white_check_mark:  | 
-Infinite | 2 | cycle | - |
+Infinite | 2 | cycle | :white_check_mark: |
 Infinite | 3 | repeat | - |
 Short termination | 4 | chain | - |
 Short termination | 5 | compress |  :white_check_mark: |
