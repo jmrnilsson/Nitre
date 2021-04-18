@@ -5,28 +5,28 @@ using Nitre.Functions;
 
 namespace Nitre
 {
-    public static class Nitre
-    {
-        #region 1_COUNT
-        public static IEnumerable<int> Count(int start, int step=1)
-        {
-            return CountFunction.Count(start, x => x + step);
-        }
+	public static class Nitre
+	{
+		#region 1_COUNT
+		public static IEnumerable<int> Count(int start, int step = 1)
+		{
+			return CountFunction.Count(start, x => x + step);
+		}
 
-        public static IEnumerable<float> Count(float start, float step=1f)
-        {
-            return CountFunction.Count(start, x => x + step);
-        }
+		public static IEnumerable<float> Count(float start, float step = 1f)
+		{
+			return CountFunction.Count(start, x => x + step);
+		}
 
-        public static IEnumerable<double> Count(double start, double step=1d)
-        {
-            return CountFunction.Count(start, x => x + step);
-        }
+		public static IEnumerable<double> Count(double start, double step = 1d)
+		{
+			return CountFunction.Count(start, x => x + step);
+		}
 
-        public static IEnumerable<decimal> Count(decimal start, decimal step=1.0m)
-        {
-            return CountFunction.Count(start, x => x + step);
-        }
+		public static IEnumerable<decimal> Count(decimal start, decimal step = 1.0m)
+		{
+			return CountFunction.Count(start, x => x + step);
+		}
 		#endregion
 
 		#region 2_CYCLE
@@ -85,26 +85,26 @@ namespace Nitre
 		{
 			return source.Where(it => predicate(it));
 		}
-        #endregion
+		#endregion
 
-        #region 9_FILTERFALSE
-        public static IEnumerable<TSource> FilterFalse<TSource>
-        (
+		#region 9_FILTERFALSE
+		public static IEnumerable<TSource> FilterFalse<TSource>
+		(
 			this IEnumerable<TSource> source,
-            Func<TSource, int, bool> predicate
-        )
-        {
-            return source.Where((it, i) => !predicate(it, i));
-        }
+			Func<TSource, int, bool> predicate
+		)
+		{
+			return source.Where((it, i) => !predicate(it, i));
+		}
 
-        public static IEnumerable<TSource> FilterFalse<TSource>
-        (
-            this IEnumerable<TSource> source,
-            Func<TSource, bool> predicate
-        )
-        {
-            return source.Where(it => !predicate(it));
-        }
+		public static IEnumerable<TSource> FilterFalse<TSource>
+		(
+			this IEnumerable<TSource> source,
+			Func<TSource, bool> predicate
+		)
+		{
+			return source.Where(it => !predicate(it));
+		}
 		#endregion
 
 		#region 10_SLICE
@@ -122,227 +122,255 @@ namespace Nitre
 
 		#region 12_STARMAP
 		public static IEnumerable<TResult> Starmap<T1, T2, TResult>
-        (
-            Func<T1, T2, TResult> valueFactory,
-            IEnumerable<Tuple<T1, T2>> iterable
-        )
-        {
-            return StarmapFunction.Starmap
-            (
-                valueFactory,
-                iterable
-            );
-        }
+		(
+			Func<T1, T2, TResult> valueFactory,
+			IEnumerable<Tuple<T1, T2>> iterable
+		)
+		{
+			return StarmapFunction.Starmap
+			(
+				valueFactory,
+				iterable
+			);
+		}
 
-        public static IEnumerable<TResult> Starmap<T1, T2, T3, TResult>
-        (
-            Func<T1, T2, T3, TResult> valueFactory,
-            IEnumerable<Tuple<T1, T2, T3>> iterable
-        )
-        {
-            return StarmapFunction.Starmap
-            (
-                valueFactory,
-                iterable
-            );
-        }
+		public static IEnumerable<TResult> Starmap<T1, T2, T3, TResult>
+		(
+			Func<T1, T2, T3, TResult> valueFactory,
+			IEnumerable<Tuple<T1, T2, T3>> iterable
+		)
+		{
+			return StarmapFunction.Starmap
+			(
+				valueFactory,
+				iterable
+			);
+		}
 
-        public static IEnumerable<TResult> Starmap<T1, T2, T3, T4, TResult>
-        (
-            Func<T1, T2, T3, T4, TResult> valueFactory,
-            IEnumerable<Tuple<T1, T2, T3, T4>> iterable
-        )
-        {
-            return StarmapFunction.Starmap
-            (
-                valueFactory,
-                iterable
-            );
-        }
+		public static IEnumerable<TResult> Starmap<T1, T2, T3, T4, TResult>
+		(
+			Func<T1, T2, T3, T4, TResult> valueFactory,
+			IEnumerable<Tuple<T1, T2, T3, T4>> iterable
+		)
+		{
+			return StarmapFunction.Starmap
+			(
+				valueFactory,
+				iterable
+			);
+		}
 
-        public static IEnumerable<TResult> Starmap<T1, T2, T3, T4, T5, TResult>
-        (
-            Func<T1, T2, T3, T4, T5, TResult> valueFactory,
-            IEnumerable<Tuple<T1, T2, T3, T4, T5>> iterable
-        )
-        {
-            return StarmapFunction.Starmap
-            (
-                valueFactory,
-                iterable
-            );
-        }
+		public static IEnumerable<TResult> Starmap<T1, T2, T3, T4, T5, TResult>
+		(
+			Func<T1, T2, T3, T4, T5, TResult> valueFactory,
+			IEnumerable<Tuple<T1, T2, T3, T4, T5>> iterable
+		)
+		{
+			return StarmapFunction.Starmap
+			(
+				valueFactory,
+				iterable
+			);
+		}
 
-        public static IEnumerable<TResult> Starmap<T1, T2, T3, T4, T5, T6, TResult>
-        (
-            Func<T1, T2, T3, T4, T5, T6, TResult> valueFactory,
-            IEnumerable<Tuple<T1, T2, T3, T4, T5, T6>> iterable
-        )
-        {
-            return StarmapFunction.Starmap
-            (
-                valueFactory,
-                iterable
-            );
-        }
+		public static IEnumerable<TResult> Starmap<T1, T2, T3, T4, T5, T6, TResult>
+		(
+			Func<T1, T2, T3, T4, T5, T6, TResult> valueFactory,
+			IEnumerable<Tuple<T1, T2, T3, T4, T5, T6>> iterable
+		)
+		{
+			return StarmapFunction.Starmap
+			(
+				valueFactory,
+				iterable
+			);
+		}
 
-        public static IEnumerable<TResult> Starmap<T1, T2, T3, T4, T5, T6, T7, TResult>
-        (
-            Func<T1, T2, T3, T4, T5, T6, T7, TResult> valueFactory,
-            IEnumerable<Tuple<T1, T2, T3, T4, T5, T6, T7>> iterable
-        )
-        {
-            return StarmapFunction.Starmap
-            (
-                valueFactory,
-                iterable
-            );
-        }
-        #endregion
+		public static IEnumerable<TResult> Starmap<T1, T2, T3, T4, T5, T6, T7, TResult>
+		(
+			Func<T1, T2, T3, T4, T5, T6, T7, TResult> valueFactory,
+			IEnumerable<Tuple<T1, T2, T3, T4, T5, T6, T7>> iterable
+		)
+		{
+			return StarmapFunction.Starmap
+			(
+				valueFactory,
+				iterable
+			);
+		}
+		#endregion
 
-        #region 15_PRODUCT
-        public static IEnumerable<Tuple<T1, T2>> Product<T1, T2>
-        (
-            IEnumerable<T1> iterable0,
-            IEnumerable<T2> iterable1,
-            int repeat=1
-        )
-        {
-            return ProductFunction.Product
-            (
-                iterable0,
-                iterable1,
-                repeat
-            );
-        }
+		#region 15_PRODUCT
+		public static IEnumerable<Tuple<T1, T2>> Product<T1, T2>
+		(
+			IEnumerable<T1> iterable0,
+			IEnumerable<T2> iterable1,
+			int repeat = 1
+		)
+		{
+			return ProductFunction.Product
+			(
+				iterable0,
+				iterable1,
+				repeat
+			);
+		}
 
-        public static IEnumerable<Tuple<T1, T2, T3>> Product<T1, T2, T3>
-        (
-            IEnumerable<T1> iterable0,
-            IEnumerable<T2> iterable1,
-            IEnumerable<T3> iterable2,
-            int repeat=1
-        )
-        {
-            return ProductFunction.Product
-            (
-                iterable0,
-                iterable1,
-                iterable2,
-                repeat
-            );
-        }
+		public static IEnumerable<Tuple<T1, T2, T3>> Product<T1, T2, T3>
+		(
+			IEnumerable<T1> iterable0,
+			IEnumerable<T2> iterable1,
+			IEnumerable<T3> iterable2,
+			int repeat = 1
+		)
+		{
+			return ProductFunction.Product
+			(
+				iterable0,
+				iterable1,
+				iterable2,
+				repeat
+			);
+		}
 
-        public static IEnumerable<Tuple<T1, T2, T3, T4>> Product<T1, T2, T3, T4>
-        (
-            IEnumerable<T1> iterable0,
-            IEnumerable<T2> iterable1,
-            IEnumerable<T3> iterable2,
-            IEnumerable<T4> iterable3,
-            int repeat=1
-        )
-        {
-            return ProductFunction.Product
-            (
-                iterable0,
-                iterable1,
-                iterable2,
-                iterable3,
-                repeat
-            );
-        }
-
-
-        public static IEnumerable<Tuple<T1, T2, T3, T4, T5>> Product<T1, T2, T3, T4, T5>
-        (
-            IEnumerable<T1> iterable0,
-            IEnumerable<T2> iterable1,
-            IEnumerable<T3> iterable2,
-            IEnumerable<T4> iterable3,
-            IEnumerable<T5> iterable4,
-            int repeat=1
-        )
-        {
-            return ProductFunction.Product
-            (
-                iterable0,
-                iterable1,
-                iterable2,
-                iterable3,
-                iterable4,
-                repeat
-            );
-        }
+		public static IEnumerable<Tuple<T1, T2, T3, T4>> Product<T1, T2, T3, T4>
+		(
+			IEnumerable<T1> iterable0,
+			IEnumerable<T2> iterable1,
+			IEnumerable<T3> iterable2,
+			IEnumerable<T4> iterable3,
+			int repeat = 1
+		)
+		{
+			return ProductFunction.Product
+			(
+				iterable0,
+				iterable1,
+				iterable2,
+				iterable3,
+				repeat
+			);
+		}
 
 
-        public static IEnumerable<Tuple<T1, T2, T3, T4, T5, T6>> Product<T1, T2, T3, T4, T5, T6>
-        (
-            IEnumerable<T1> iterable0,
-            IEnumerable<T2> iterable1,
-            IEnumerable<T3> iterable2,
-            IEnumerable<T4> iterable3,
-            IEnumerable<T5> iterable4,
-            IEnumerable<T6> iterable5,
-            int repeat=1
-        )
-        {
-            return ProductFunction.Product
-            (
-                iterable0,
-                iterable1,
-                iterable2,
-                iterable3,
-                iterable4,
-                iterable5,
-                repeat
-            );
-        }
+		public static IEnumerable<Tuple<T1, T2, T3, T4, T5>> Product<T1, T2, T3, T4, T5>
+		(
+			IEnumerable<T1> iterable0,
+			IEnumerable<T2> iterable1,
+			IEnumerable<T3> iterable2,
+			IEnumerable<T4> iterable3,
+			IEnumerable<T5> iterable4,
+			int repeat = 1
+		)
+		{
+			return ProductFunction.Product
+			(
+				iterable0,
+				iterable1,
+				iterable2,
+				iterable3,
+				iterable4,
+				repeat
+			);
+		}
 
-        public static IEnumerable<Tuple<T1, T2, T3, T4, T5, T6, T7>> Product<T1, T2, T3, T4, T5, T6, T7>
-        (
-            IEnumerable<T1> iterable0,
-            IEnumerable<T2> iterable1,
-            IEnumerable<T3> iterable2,
-            IEnumerable<T4> iterable3,
-            IEnumerable<T5> iterable4,
-            IEnumerable<T6> iterable5,
-            IEnumerable<T7> iterable6,
-            int repeat=1
-        )
-        {
 
-            return ProductFunction.Product
-            (
-                iterable0,
-                iterable1,
-                iterable2,
-                iterable3,
-                iterable4,
-                iterable5,
-                iterable6,
-                repeat
-            );
-        }
-        #endregion
+		public static IEnumerable<Tuple<T1, T2, T3, T4, T5, T6>> Product<T1, T2, T3, T4, T5, T6>
+		(
+			IEnumerable<T1> iterable0,
+			IEnumerable<T2> iterable1,
+			IEnumerable<T3> iterable2,
+			IEnumerable<T4> iterable3,
+			IEnumerable<T5> iterable4,
+			IEnumerable<T6> iterable5,
+			int repeat = 1
+		)
+		{
+			return ProductFunction.Product
+			(
+				iterable0,
+				iterable1,
+				iterable2,
+				iterable3,
+				iterable4,
+				iterable5,
+				repeat
+			);
+		}
 
-        #region 14_TAKEWHILE
-        public static IEnumerable<TSource> TakeWhile<TSource>
-        (
+		public static IEnumerable<Tuple<T1, T2, T3, T4, T5, T6, T7>> Product<T1, T2, T3, T4, T5, T6, T7>
+		(
+			IEnumerable<T1> iterable0,
+			IEnumerable<T2> iterable1,
+			IEnumerable<T3> iterable2,
+			IEnumerable<T4> iterable3,
+			IEnumerable<T5> iterable4,
+			IEnumerable<T6> iterable5,
+			IEnumerable<T7> iterable6,
+			int repeat = 1
+		)
+		{
+
+			return ProductFunction.Product
+			(
+				iterable0,
+				iterable1,
+				iterable2,
+				iterable3,
+				iterable4,
+				iterable5,
+				iterable6,
+				repeat
+			);
+		}
+		#endregion
+
+		#region 14_TAKEWHILE
+		public static IEnumerable<TSource> TakeWhile<TSource>
+		(
 			this IEnumerable<TSource> source,
-            Func<TSource, int, bool> predicate
-        )
-        {
-            return Enumerable.TakeWhile(source, predicate);
-        }
+			Func<TSource, int, bool> predicate
+		)
+		{
+			return Enumerable.TakeWhile(source, predicate);
+		}
 
-        public static IEnumerable<TSource> TakeWhile<TSource>
-        (
-            this IEnumerable<TSource> source,
-            Func<TSource, bool> predicate
-        )
-        {
-            return Enumerable.TakeWhile(source, predicate);
-        }
-        #endregion
-    }
+		public static IEnumerable<TSource> TakeWhile<TSource>
+		(
+			this IEnumerable<TSource> source,
+			Func<TSource, bool> predicate
+		)
+		{
+			return Enumerable.TakeWhile(source, predicate);
+		}
+		#endregion
+
+		#region 17_COMBINATIONS
+		public static IEnumerable<Tuple<T, T>> CombinationsBinary<T>(this IEnumerable<T> iterable)
+		{
+			return CombinationFunction.CombinationsBinary(iterable);
+		}
+
+		public static IEnumerable<Tuple<T, T, T>> CombinationsTernary<T>(this IEnumerable<T> iterable)
+		{
+			return CombinationFunction.CombinationsTernary(iterable);
+		}
+
+		public static IEnumerable<Tuple<T, T, T, T>> CombinationsQuaternary<T>(this IEnumerable<T> iterable)
+		{
+			return CombinationFunction.CombinationsQuaternary(iterable);
+		}
+
+		public static IEnumerable<Tuple<T, T, T, T, T>> CombinationsQuinary<T>(this IEnumerable<T> iterable)
+		{
+			return CombinationFunction.CombinationsQuinary(iterable);
+		}
+
+		public static IEnumerable<Tuple<T, T>> CombinationsWithReplacementsBinary<T>(this IEnumerable<T> iterable)
+		{
+			return CombinationFunction.CombinationsWithReplacementsBinary(iterable);
+		}
+		#endregion
+	}
 }
+

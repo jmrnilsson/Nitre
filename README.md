@@ -25,8 +25,8 @@ Short termination | 13 | tee | - | Due to language design return tuple is define
 Short termination | 14 | takewhile | :white_check_mark: |
 Combinatoric | 15 | product | :white_check_mark: |
 Combinatoric | 16 | permutations | - |
-Combinatoric | 17 | combinations | - |
-Combinatoric | 18 | combinations_with_replacements | - |
+Combinatoric | 17 | combinations | :hammer: |
+Combinatoric | 18 | combinations_with_replacements | :hammer: |
 
 ## Planned changes
 This library will probably include a few basic operations in addition to those listed above because
