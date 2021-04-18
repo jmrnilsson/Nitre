@@ -116,6 +116,27 @@ namespace Nitre.Test
 			Assert.Equal(expected, actual);
 		}
 
+		/// <summary>
+		/// [''.join(v) for v in combinations('IJKLMNOP', 3)]
+		/// </summary>
+		[Fact]
+		public void Repl_TernaryTuple_VeryLong()
+		{
+			var expected = new string[]
+			{
+				"IJK", "IJL", "IJM", "IJN", "IJO", "IJP", "IKL", "IKM", "IKN", "IKO", "IKP", "ILM", "ILN", "ILO", "ILP", "IMN", "IMO",
+				"IMP", "INO", "INP", "IOP", "JKL", "JKM", "JKN", "JKO", "JKP", "JLM", "JLN", "JLO", "JLP", "JMN", "JMO", "JMP", "JNO",
+				"JNP", "JOP", "KLM", "KLN", "KLO", "KLP", "KMN", "KMO", "KMP", "KNO", "KNP", "KOP", "LMN", "LMO", "LMP", "LNO", "LNP",
+				"LOP", "MNO", "MNP", "MOP", "NOP"
+			};
+
+			char[] iterable = "IJKLMNOP".ToCharArray();
+
+			var actual = Nitre.CombinationsTernary(iterable).Select(item => new string(new char[] { item.Item1, item.Item2, item.Item3 })).ToList();
+
+			Assert.Equal(expected, actual);
+		}
+
 		[Fact]
 		public void Repl_QuaternaryTuple()
 		{
@@ -127,6 +148,58 @@ namespace Nitre.Test
 			char[] iterable = "ABCD".ToCharArray();
 
 			var actual = Nitre.CombinationsQuaternary(iterable).ToList();
+
+			Assert.Equal(expected, actual);
+		}
+
+		/// <summary>
+		/// [''.join(v) for v in combinations('ABCDEF', 4)]
+		/// </summary>
+		[Fact]
+		public void Repl_QuaternaryTuple_Long()
+		{
+			var expected = new List<string>
+			{
+				"ABCD", "ABCE", "ABCF", "ABDE", "ABDF", "ABEF", "ACDE", "ACDF", "ACEF", "ADEF", "BCDE", "BCDF", "BCEF", "BDEF", "CDEF"
+			};
+
+			char[] iterable = "ABCDEF".ToCharArray();
+
+			var actual = Nitre.CombinationsQuaternary(iterable).Select(item => new string(new char[] { item.Item1, item.Item2, item.Item3, item.Item4 })).ToList();
+
+
+			Assert.Equal(expected, actual);
+		}
+
+		/// <summary>
+		/// [''.join(v) for v in combinations('IJKLMNOPQR', 4)]
+		/// </summary>
+		[Fact]
+		public void Repl_QuaternaryTuple_VeryLong()
+		{
+			var expected = new List<string>
+			{
+				"IJKL", "IJKM", "IJKN", "IJKO", "IJKP", "IJKQ", "IJKR", "IJLM", "IJLN", "IJLO", "IJLP", "IJLQ", "IJLR", "IJMN",
+				"IJMO", "IJMP", "IJMQ", "IJMR", "IJNO", "IJNP", "IJNQ", "IJNR", "IJOP", "IJOQ", "IJOR", "IJPQ", "IJPR", "IJQR",
+				"IKLM", "IKLN", "IKLO", "IKLP", "IKLQ", "IKLR", "IKMN", "IKMO", "IKMP", "IKMQ", "IKMR", "IKNO", "IKNP", "IKNQ",
+				"IKNR", "IKOP", "IKOQ", "IKOR", "IKPQ", "IKPR", "IKQR", "ILMN", "ILMO", "ILMP", "ILMQ", "ILMR", "ILNO", "ILNP",
+				"ILNQ", "ILNR", "ILOP", "ILOQ", "ILOR", "ILPQ", "ILPR", "ILQR", "IMNO", "IMNP", "IMNQ", "IMNR", "IMOP", "IMOQ",
+				"IMOR", "IMPQ", "IMPR", "IMQR", "INOP", "INOQ", "INOR", "INPQ", "INPR", "INQR", "IOPQ", "IOPR", "IOQR", "IPQR",
+				"JKLM", "JKLN", "JKLO", "JKLP", "JKLQ", "JKLR", "JKMN", "JKMO", "JKMP", "JKMQ", "JKMR", "JKNO", "JKNP", "JKNQ",
+				"JKNR", "JKOP", "JKOQ", "JKOR", "JKPQ", "JKPR", "JKQR", "JLMN", "JLMO", "JLMP", "JLMQ", "JLMR", "JLNO", "JLNP",
+				"JLNQ", "JLNR", "JLOP", "JLOQ", "JLOR", "JLPQ", "JLPR", "JLQR", "JMNO", "JMNP", "JMNQ", "JMNR", "JMOP", "JMOQ",
+				"JMOR", "JMPQ", "JMPR", "JMQR", "JNOP", "JNOQ", "JNOR", "JNPQ", "JNPR", "JNQR", "JOPQ", "JOPR", "JOQR", "JPQR",
+				"KLMN", "KLMO", "KLMP", "KLMQ", "KLMR", "KLNO", "KLNP", "KLNQ", "KLNR", "KLOP", "KLOQ", "KLOR", "KLPQ", "KLPR",
+				"KLQR", "KMNO", "KMNP", "KMNQ", "KMNR", "KMOP", "KMOQ", "KMOR", "KMPQ", "KMPR", "KMQR", "KNOP", "KNOQ", "KNOR",
+				"KNPQ", "KNPR", "KNQR", "KOPQ", "KOPR", "KOQR", "KPQR", "LMNO", "LMNP", "LMNQ", "LMNR", "LMOP", "LMOQ", "LMOR",
+				"LMPQ", "LMPR", "LMQR", "LNOP", "LNOQ", "LNOR", "LNPQ", "LNPR", "LNQR", "LOPQ", "LOPR", "LOQR", "LPQR", "MNOP",
+				"MNOQ", "MNOR", "MNPQ", "MNPR", "MNQR", "MOPQ", "MOPR", "MOQR", "MPQR", "NOPQ", "NOPR", "NOQR", "NPQR", "OPQR"
+			};
+
+			char[] iterable = "IJKLMNOPQR".ToCharArray();
+
+			var actual = Nitre.CombinationsQuaternary(iterable).Select(item => new string(new char[] { item.Item1, item.Item2, item.Item3, item.Item4 })).ToList();
+
 
 			Assert.Equal(expected, actual);
 		}

@@ -55,13 +55,19 @@ namespace Nitre.Functions
 
 		internal static IEnumerable<Tuple<T, T, T>> CombinationsTernary<T>(this IEnumerable<T> iterable)
 		{
-			for(int i = 1; i < iterable.Count(); i++)
+			int i = 1;
+			using (var sequence = iterable.GetEnumerator())
 			{
-				var rest = iterable.Skip(i);
-
-				foreach (var values in CombinationsTernary<T>(iterable.ElementAt(i - 1), rest))
+				while (sequence.MoveNext())
 				{
-					yield return values;
+					var rest = iterable.Skip(i);
+
+					foreach (var values in CombinationsTernary(sequence.Current, rest))
+					{
+						yield return values;
+					}
+
+					i++;
 				}
 			}
 		}
@@ -70,7 +76,7 @@ namespace Nitre.Functions
 		{
 			if (rest.Any())
 			{
-				foreach (var values in CombinationsBinary<T>(rest.ElementAt(0), rest.Skip(1), false))
+				foreach (var values in CombinationsBinary(rest.ElementAt(0), rest.Skip(1), false))
 				{
 					yield return Tuple.Create(current, values.Item1, values.Item2);
 				}
@@ -79,49 +85,99 @@ namespace Nitre.Functions
 
 		internal static IEnumerable<Tuple<T, T, T, T>> CombinationsQuaternary<T>(this IEnumerable<T> iterable)
 		{
-			for (int i = 1; i < 3; i++)
+			//for (int i = 2; i < 4; i++)
+			//{
+			int i = 1;
+			using (var sequence = iterable.GetEnumerator())
 			{
-				var rest = iterable.Skip(i);
-
-				foreach (var values in CombinationsQuaternary<T>(iterable.ElementAt(i - 1), rest))
+				while (sequence.MoveNext())
 				{
-					yield return values;
+					var rest = iterable.Skip(i);
+
+					foreach (var values in CombinationsQuaternary(sequence.Current, rest))
+					{
+						yield return values;
+					}
+
+					//if (i > 2)
+					//{
+					//	foreach (var values in CombinationsTernary(sequence.Current, rest.Skip(1)))
+					//	{
+					//		yield return values;
+					//	}
+					//}
+
+					i++;
 				}
 			}
+			// }
+
+			//for (int i = 1; i < 3; i++)
+			//{
+			//	var rest = iterable.Skip(i);
+
+			//	foreach (var values in CombinationsQuaternary<T>(iterable.ElementAt(i - 1), rest))
+			//	{
+			//		yield return values;
+			//	}
+			//}
 		}
 
 		private static IEnumerable<Tuple<T, T, T, T>> CombinationsQuaternary<T>(T current, IEnumerable<T> rest)
 		{
-			if (rest.Any())
+			int i = 0;
+			while(true)
 			{
-				foreach (var values in CombinationsTernary(rest.ElementAt(0), rest.Skip(1)))
+				if (rest.Skip(i).Any())
 				{
-					yield return Tuple.Create(current, values.Item1, values.Item2, values.Item3);
+					foreach (var values in CombinationsTernary(rest.ElementAt(i), rest.Skip(i + 1)))
+					{
+						yield return Tuple.Create(current, values.Item1, values.Item2, values.Item3);
+					}
 				}
+				else
+				{
+					break;
+				}
+				i++;
 			}
 		}
 
 		internal static IEnumerable<Tuple<T, T, T, T, T>> CombinationsQuinary<T>(this IEnumerable<T> iterable)
 		{
-			for (int i = 1; i < 4; i++)
+			int i = 1;
+			using (var sequence = iterable.GetEnumerator())
 			{
-				var rest = iterable.Skip(i);
-
-				foreach (var values in CombinationsQuinary(iterable.ElementAt(i - 1), rest))
+				while (sequence.MoveNext())
 				{
-					yield return values;
+					var rest = iterable.Skip(i);
+
+					foreach (var values in CombinationsQuinary(sequence.Current, rest))
+					{
+						yield return values;
+					}
+					i++;
 				}
-			}
+			}	
 		}
 
 		private static IEnumerable<Tuple<T, T, T, T, T>> CombinationsQuinary<T>(T current, IEnumerable<T> rest)
 		{
-			if (rest.Any())
+			int i = 0;
+			while (true)
 			{
-				foreach (var values in CombinationsQuaternary(rest.ElementAt(0), rest.Skip(1)))
+				if (rest.Skip(i).Any())
 				{
-					yield return Tuple.Create(current, values.Item1, values.Item2, values.Item3, values.Item4);
+					foreach (var values in CombinationsQuaternary(rest.ElementAt(i), rest.Skip(i + 1)))
+					{
+						yield return Tuple.Create(current, values.Item1, values.Item2, values.Item3, values.Item4);
+					}
 				}
+				else
+				{
+					break;
+				}
+				i++;
 			}
 		}
 	}
