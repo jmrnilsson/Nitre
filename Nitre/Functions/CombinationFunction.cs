@@ -15,14 +15,14 @@ namespace Nitre.Functions
 
 			if (rest.Any())
 			{
-				foreach (var values in CombinationsBinary<T>(iterable.ElementAt(0), rest))
+				foreach (var values in CombinationsBinary(iterable.ElementAt(0), rest, false))
 				{
 					yield return values;
 				}
 			}
 		}
 
-		private static IEnumerable<Tuple<T, T>> CombinationsBinary<T>(T current, IEnumerable<T> rest)
+		private static IEnumerable<Tuple<T, T>> CombinationsBinary<T>(T current, IEnumerable<T> rest, bool withReplacements)
 		{
 			int length = 0;
 			foreach(var value in rest)
@@ -31,9 +31,11 @@ namespace Nitre.Functions
 				length += 1;
 			}
 
+			int index = withReplacements ? 1 : 0;
+
 			if (length > 1)
 			{
-				foreach(var values in CombinationsBinary(rest.ElementAt(0), rest.Skip(1)))
+				foreach(var values in CombinationsBinary<T>(rest.ElementAt(index), rest.Skip(1), withReplacements))
 				{
 					yield return values;
 				}
@@ -44,25 +46,7 @@ namespace Nitre.Functions
 		{
 			if (iterable.Any())
 			{
-				foreach (var values in CombinationsWithReplacementsBinary(iterable.ElementAt(0), iterable))
-				{
-					yield return values;
-				}
-			}
-		}
-
-		private static IEnumerable<Tuple<T, T>> CombinationsWithReplacementsBinary<T>(T current, IEnumerable<T> rest)
-		{
-			int length = 0;
-			foreach (var value in rest)
-			{
-				yield return Tuple.Create(current, value);
-				length += 1;
-			}
-
-			if (length > 1)
-			{
-				foreach (var values in CombinationsWithReplacementsBinary(rest.ElementAt(1), rest.Skip(1)))
+				foreach (var values in CombinationsBinary(iterable.ElementAt(0), iterable, true))
 				{
 					yield return values;
 				}
@@ -71,7 +55,7 @@ namespace Nitre.Functions
 
 		internal static IEnumerable<Tuple<T, T, T>> CombinationsTernary<T>(this IEnumerable<T> iterable)
 		{
-			for(int i = 1; i < 3; i++)
+			for(int i = 1; i < iterable.Count(); i++)
 			{
 				var rest = iterable.Skip(i);
 
@@ -86,7 +70,7 @@ namespace Nitre.Functions
 		{
 			if (rest.Any())
 			{
-				foreach (var values in CombinationsBinary<T>(rest.ElementAt(0), rest.Skip(1)))
+				foreach (var values in CombinationsBinary<T>(rest.ElementAt(0), rest.Skip(1), false))
 				{
 					yield return Tuple.Create(current, values.Item1, values.Item2);
 				}
