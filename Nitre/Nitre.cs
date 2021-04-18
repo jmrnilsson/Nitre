@@ -370,6 +370,11 @@ namespace Nitre
 		{
 			return CombinationFunction.CombinationsWithReplacementsBinary(iterable);
 		}
+
+		public static IEnumerable<Tuple<T, T, T>> CombinationsWithReplacementsTernary<T>(this IEnumerable<T> iterable)
+		{
+			return CombinationFunction.CombinationsWithReplacementsTernary(iterable);
+		}
 		#endregion
 	}
 }

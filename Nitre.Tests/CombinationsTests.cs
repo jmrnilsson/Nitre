@@ -117,6 +117,26 @@ namespace Nitre.Test
 		}
 
 		/// <summary>
+		/// [''.join(v) for v in list(combinations_with_replacement('ABCDEF', 3))]
+		/// </summary>
+		[Fact(Skip = "Not implemented yet")]
+		public void Repl_TernaryTuple_WithReplacements()
+		{
+			var iterables = "ABCD".ToCharArray();
+
+			var actual = Nitre.CombinationsWithReplacementsTernary(iterables).Select(item => new string(new char[] { item.Item1, item.Item2, item.Item3 })).ToList();
+			var expected = new string[]
+			{
+				"AAA", "AAB", "AAC", "AAD", "AAE", "AAF", "ABB", "ABC", "ABD", "ABE", "ABF", "ACC", "ACD", "ACE", "ACF", "ADD",
+				"ADE", "ADF", "AEE", "AEF", "AFF", "BBB", "BBC", "BBD", "BBE", "BBF", "BCC", "BCD", "BCE", "BCF", "BDD", "BDE",
+				"BDF", "BEE", "BEF", "BFF", "CCC", "CCD", "CCE", "CCF", "CDD", "CDE", "CDF", "CEE", "CEF", "CFF", "DDD", "DDE",
+				"DDF", "DEE", "DEF", "DFF", "EEE", "EEF", "EFF", "FFF"
+			};
+
+			Assert.Equal(expected, actual);
+		}
+
+		/// <summary>
 		/// [''.join(v) for v in combinations('IJKLMNOP', 3)]
 		/// </summary>
 		[Fact]

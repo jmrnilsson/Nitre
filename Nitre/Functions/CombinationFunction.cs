@@ -24,16 +24,16 @@ namespace Nitre.Functions
 
 		private static IEnumerable<Tuple<T, T>> CombinationsBinary<T>(T current, IEnumerable<T> rest, bool withReplacements)
 		{
-			int length = 0;
+			int i = 0;
 			foreach(var value in rest)
 			{
 				yield return Tuple.Create(current, value);
-				length += 1;
+				i += 1;
 			}
 
 			int index = withReplacements ? 1 : 0;
 
-			if (length > 1)
+			if (i > 1)
 			{
 				foreach(var values in CombinationsBinary(rest.ElementAt(index), rest.Skip(1), withReplacements))
 				{
@@ -62,7 +62,7 @@ namespace Nitre.Functions
 				{
 					var rest = iterable.Skip(i);
 
-					foreach (var values in CombinationsTernary(sequence.Current, rest))
+					foreach (var values in CombinationsTernary(sequence.Current, rest, false))
 					{
 						yield return values;
 					}
@@ -72,16 +72,36 @@ namespace Nitre.Functions
 			}
 		}
 
-		private static IEnumerable<Tuple<T, T, T>> CombinationsTernary<T>(T current, IEnumerable<T> rest)
+		internal static IEnumerable<Tuple<T, T, T>> CombinationsWithReplacementsTernary<T>(this IEnumerable<T> iterable)
+		{
+			int i = 0;
+			using (var sequence = iterable.GetEnumerator())
+			{
+				while (sequence.MoveNext())
+				{
+					var rest = iterable.Skip(i);
+
+					foreach (var values in CombinationsTernary(sequence.Current, rest, true))
+					{
+						yield return values;
+					}
+
+					i++;
+				}
+			}
+		}
+
+		private static IEnumerable<Tuple<T, T, T>> CombinationsTernary<T>(T current, IEnumerable<T> rest, bool withReplacements)
 		{
 			if (rest.Any())
 			{
-				foreach (var values in CombinationsBinary(rest.ElementAt(0), rest.Skip(1), false))
+				foreach (var values in CombinationsBinary(rest.ElementAt(0), rest.Skip(1), withReplacements))
 				{
 					yield return Tuple.Create(current, values.Item1, values.Item2);
 				}
 			}
 		}
+
 
 		internal static IEnumerable<Tuple<T, T, T, T>> CombinationsQuaternary<T>(this IEnumerable<T> iterable)
 		{
@@ -109,7 +129,7 @@ namespace Nitre.Functions
 			{
 				if (rest.Skip(i).Any())
 				{
-					foreach (var values in CombinationsTernary(rest.ElementAt(i), rest.Skip(i + 1)))
+					foreach (var values in CombinationsTernary(rest.ElementAt(i), rest.Skip(i + 1), false))
 					{
 						yield return Tuple.Create(current, values.Item1, values.Item2, values.Item3);
 					}
