@@ -35,7 +35,7 @@ namespace Nitre.Functions
 
 			if (length > 1)
 			{
-				foreach(var values in CombinationsBinary<T>(rest.ElementAt(index), rest.Skip(1), withReplacements))
+				foreach(var values in CombinationsBinary(rest.ElementAt(index), rest.Skip(1), withReplacements))
 				{
 					yield return values;
 				}
@@ -85,8 +85,6 @@ namespace Nitre.Functions
 
 		internal static IEnumerable<Tuple<T, T, T, T>> CombinationsQuaternary<T>(this IEnumerable<T> iterable)
 		{
-			//for (int i = 2; i < 4; i++)
-			//{
 			int i = 1;
 			using (var sequence = iterable.GetEnumerator())
 			{
@@ -99,28 +97,9 @@ namespace Nitre.Functions
 						yield return values;
 					}
 
-					//if (i > 2)
-					//{
-					//	foreach (var values in CombinationsTernary(sequence.Current, rest.Skip(1)))
-					//	{
-					//		yield return values;
-					//	}
-					//}
-
 					i++;
 				}
 			}
-			// }
-
-			//for (int i = 1; i < 3; i++)
-			//{
-			//	var rest = iterable.Skip(i);
-
-			//	foreach (var values in CombinationsQuaternary<T>(iterable.ElementAt(i - 1), rest))
-			//	{
-			//		yield return values;
-			//	}
-			//}
 		}
 
 		private static IEnumerable<Tuple<T, T, T, T>> CombinationsQuaternary<T>(T current, IEnumerable<T> rest)
